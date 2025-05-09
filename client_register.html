@@ -1,0 +1,59 @@
+<!-- client_register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Quotes - FixableUp | Upington's Trusted Services</title>
+  <meta name="description" content="Get 3 quotes from verified service providers in Upington. Quick, free and easy. Trusted by over 1000 satisfied locals.">
+  <meta name="keywords" content="Upington quotes, home services, FixableUp, get quotes, plumbers, electricians, solar cleaning, handyman">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #0F0F0F; color: #E5E5E5; }
+    .luxury { color: #D4AF37; } /* Gold tone */
+    .input, select, textarea {
+      background-color: #1C1C1C;
+      border: 1px solid #333;
+      padding: 0.75rem;
+      width: 100%;
+      border-radius: 0.5rem;
+      color: #E5E5E5;
+    }
+    .input:focus {
+      border-color: #D4AF37;
+      outline: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+
+  <div class="max-w-md w-full bg-black bg-opacity-70 p-8 rounded-2xl shadow-2xl">
+    <img src="logo.png" alt="FixableUp Logo" width="96" height="96" class="mx-auto mb-4">
+    <h1 class="text-3xl font-bold luxury text-center mb-2">Get 3 Quotes</h1>
+    <p class="text-center text-gray-400 mb-6">Trusted by <span class="luxury font-semibold">1000+ Upington clients</span>. It’s free and fast.</p>
+
+    <form action="submit_form.php" method="POST" class="space-y-4">
+      <input type="text" name="name" placeholder="Your Full Name" class="input" required>
+      <input type="email" name="email" placeholder="Your Email Address" class="input" required>
+      <input type="text" name="location" placeholder="Your Location (e.g., Upington)" class="input" required>
+
+      <select name="service" class="input" required>
+        <option value="">Select Service Needed</option>
+        <option value="plumber">Plumber</option>
+        <option value="electrician">Electrician</option>
+        <option value="solar_cleaning">Solar Panel Cleaning</option>
+        <option value="handyman">Handyman</option>
+        <option value="other">Other</option>
+      </select>
+
+      <textarea name="details" rows="4" placeholder="Describe your job (optional)" class="input"></textarea>
+
+      <button type="submit" class="w-full bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-semibold py-3 rounded-xl hover:from-yellow-500 hover:to-yellow-300 transition">Get My 3 Quotes Now</button>
+    </form>
+
+    <p class="text-center text-gray-500 text-sm mt-6">We respect your privacy. Your info goes only to verified providers.</p>
+  </div>
+
+</body>
+</html>
