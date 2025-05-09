@@ -1,0 +1,70 @@
+<!-- provider_register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register as a Provider - FixableUp</title>
+  <meta name="description" content="Join FixableUp and get clients in Upington. Verified providers get free leads.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #0F0F0F; color: #E5E5E5; }
+    .luxury { color: #D4AF37; } /* Gold */
+    .input, select, textarea {
+      background-color: #1C1C1C;
+      border: 1px solid #333;
+      padding: 0.75rem;
+      width: 100%;
+      border-radius: 0.5rem;
+      color: #E5E5E5;
+    }
+    .input:focus { border-color: #D4AF37; outline: none; }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+
+  <div class="max-w-md w-full bg-black bg-opacity-70 p-8 rounded-2xl shadow-2xl">
+
+    <!-- Logo -->
+    <a href="index.html">
+      <img src="logo.png" alt="FixableUp Logo" width="96" height="96" class="mx-auto mb-4 hover:scale-110 transition">
+    </a>
+
+    <h1 class="text-3xl font-bold luxury text-center mb-2">Join as Provider</h1>
+    <p class="text-center text-gray-400 mb-6">Verified providers get free leads in Upington. Trusted by 1000+ locals.</p>
+
+    <form action="submit_provider.php" method="POST" class="space-y-4">
+      <input type="text" name="name" placeholder="Your Full Name" class="input" required>
+      <input type="email" name="email" placeholder="Your Email Address" class="input" required>
+      <input type="text" name="phone" placeholder="Phone Number" class="input" required>
+      <input type="text" name="location" placeholder="Your Business Location" class="input" required>
+
+      <!-- Main Service Dropdown -->
+      <select name="service" class="input" required>
+        <option value="">Select Main Service</option>
+        <option value="Plumbing">Plumbing</option>
+        <option value="Electrical">Electrical</option>
+        <option value="Solar Services">Solar Services</option>
+        <option value="Cleaning">Cleaning</option>
+        <option value="Handyman">Handyman</option>
+        <option value="Construction">Construction</option>
+        <option value="Landscaping">Landscaping</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <!-- Sub Service Text -->
+      <input type="text" name="sub_services" placeholder="List Sub-Services (e.g., Solar Cleaning, Panel Install)" class="input" required>
+
+      <!-- Details -->
+      <textarea name="details" rows="4" placeholder="Describe your experience or certificates" class="input"></textarea>
+
+      <!-- Submit -->
+      <button type="submit" class="w-full bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-semibold py-3 rounded-xl hover:from-yellow-500 hover:to-yellow-300 transition">Register Now</button>
+    </form>
+
+    <p class="text-center text-gray-500 text-sm mt-6">We verify every provider before sending leads. Your info stays private.</p>
+
+  </div>
+
+</body>
+</html>
