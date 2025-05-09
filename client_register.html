@@ -2,11 +2,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Get Quotes - FixableUp | Upington's Trusted Services</title>
   <meta name="description" content="Get 3 quotes from verified service providers in Upington. Quick, free and easy. Trusted by over 1000 satisfied locals.">
   <meta name="keywords" content="Upington quotes, home services, FixableUp, get quotes, plumbers, electricians, solar cleaning, handyman">
+
+  <a href="index.html" class="flex items-center space-x-2">
+  <img src="logo.png" alt="FixableUp Logo" class="w-10 h-10 rounded-full">
+  <span class="font-bold text-lg text-gray-800">FixableUp</span>
+</a>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -38,71 +44,43 @@
       <input type="email" name="email" placeholder="Your Email Address" class="input" required>
       <input type="text" name="location" placeholder="Your Location (e.g., Upington)" class="input" required>
 
-      <select name="service" class="input" required>
-  <option value="">Select Service Needed</option>
+      <!-- Fancy Dropdown -->
+<div x-data="{ open: false, selected: '', options: [
+  { group: 'Plumbing', items: ['General Plumbing', 'Emergency Plumbing', 'Geyser Installation/Repair', 'Drain Unblocking'] },
+  { group: 'Electrical', items: ['General Electrical Work', 'Electrical Certificates (CoC)', 'Solar System Installation'] },
+  { group: 'Solar Services', items: ['Solar Panel Cleaning', 'Solar Installation', 'Solar Maintenance'] },
+  { group: 'Building & Construction', items: ['Home Renovations', 'Paving', 'Painting', 'Roof Repairs'] },
+  { group: 'Cleaning Services', items: ['Home Cleaning', 'Office Cleaning', 'Carpet & Upholstery Cleaning'] },
+  { group: 'Handyman & Repairs', items: ['General Handyman', 'Furniture Assembly', 'Door & Window Repairs'] },
+  { group: 'Appliance Repairs', items: ['Fridge Repair', 'Washing Machine Repair', 'Stove & Oven Repair'] },
+  { group: 'Garden & Outdoor', items: ['General Garden Services', 'Irrigation Systems', 'Tree Felling'] },
+  { group: 'Security', items: ['CCTV Installation', 'Electric Fencing', 'Alarm Systems'] },
+  { group: 'Other', items: ['Other (Please specify below)'] }
+] }" class="relative">
 
-  <optgroup label="Plumbing">
-    <option value="plumbing_general">General Plumbing</option>
-    <option value="plumbing_emergency">Emergency Plumbing</option>
-    <option value="plumbing_geyser">Geyser Installation/Repair</option>
-    <option value="plumbing_blockage">Drain Unblocking</option>
-  </optgroup>
+  <button type="button" @click="open = !open" class="w-full p-3 border rounded bg-white shadow text-left">
+    <span x-text="selected || 'Select Service Needed'"></span>
+    <svg class="w-5 h-5 inline float-right" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
 
-  <optgroup label="Electrical">
-    <option value="electrical_general">General Electrical Work</option>
-    <option value="electrical_certificates">Electrical Certificates (CoC)</option>
-    <option value="electrical_solar">Solar System Installation</option>
-  </optgroup>
+  <div x-show="open" @click.away="open = false" class="absolute z-10 bg-white w-full border mt-1 rounded shadow max-h-60 overflow-y-auto">
+    <template x-for="group in options" :key="group.group">
+      <div>
+        <div class="px-3 py-2 bg-gray-100 text-sm font-bold text-gray-700" x-text="group.group"></div>
+        <template x-for="item in group.items" :key="item">
+          <div @click="selected = item; open = false" class="px-3 py-2 hover:bg-indigo-100 cursor-pointer" x-text="item"></div>
+        </template>
+      </div>
+    </template>
+  </div>
 
-  <optgroup label="Solar Services">
-    <option value="solar_cleaning">Solar Panel Cleaning</option>
-    <option value="solar_installation">Solar Installation</option>
-    <option value="solar_maintenance">Solar Maintenance</option>
-  </optgroup>
+  <!-- Hidden input to submit selected value -->
+  <input type="hidden" name="service" :value="selected" required>
+</div>
 
-  <optgroup label="Building & Construction">
-    <option value="building_renovations">Home Renovations</option>
-    <option value="building_paving">Paving</option>
-    <option value="building_painting">Painting</option>
-    <option value="building_roofing">Roof Repairs</option>
-  </optgroup>
-
-  <optgroup label="Cleaning Services">
-    <option value="cleaning_home">Home Cleaning</option>
-    <option value="cleaning_office">Office Cleaning</option>
-    <option value="cleaning_carpet">Carpet & Upholstery Cleaning</option>
-  </optgroup>
-
-  <optgroup label="Handyman & Repairs">
-    <option value="handyman_general">General Handyman</option>
-    <option value="handyman_furniture">Furniture Assembly</option>
-    <option value="handyman_doors">Door & Window Repairs</option>
-  </optgroup>
-
-  <optgroup label="Appliance Repairs">
-    <option value="appliance_fridge">Fridge Repair</option>
-    <option value="appliance_washing_machine">Washing Machine Repair</option>
-    <option value="appliance_stove">Stove & Oven Repair</option>
-  </optgroup>
-
-  <optgroup label="Garden & Outdoor">
-    <option value="garden_services">General Garden Services</option>
-    <option value="garden_irrigation">Irrigation Systems</option>
-    <option value="garden_treefelling">Tree Felling</option>
-  </optgroup>
-
-  <optgroup label="Security">
-    <option value="security_cctv">CCTV Installation</option>
-    <option value="security_fencing">Electric Fencing</option>
-    <option value="security_alarms">Alarm Systems</option>
-  </optgroup>
-
-  <optgroup label="Other">
-    <option value="other">Other (Please specify below)</option>
-  </optgroup>
-</select>
 <p class="text-sm text-gray-400 mt-1">Can't find your service? Choose "Other" and describe it below.</p>
-
 
       <textarea name="details" rows="4" placeholder="Describe your job (optional)" class="input"></textarea>
 
