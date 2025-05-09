@@ -1,110 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Request Quotes | FixableUp</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FixableUp - Get Service Quotes</title>
+  <meta name="description" content="Get multiple quotes for services in Upington. Trusted local providers ready to help fast.">
+  <meta name="keywords" content="Upington services, get quotes, local providers, FixableUp, home repair, cleaning, handyman, plumbing, electricians">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background-color: #121212;
-      color: #f5f5f5;
+      font-family: 'Inter', sans-serif;
     }
-    .luxury-gold {
-      color: #d4af37;
-    }
-    .luxury-bg {
-      background-color: #1e1e1e;
+    .luxury-gradient {
+      background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
     }
     .luxury-btn {
-      background-color: #d4af37;
-      color: #121212;
+      background: linear-gradient(90deg, #4b6cb7, #182848);
     }
     .luxury-btn:hover {
-      background-color: #bfa334;
-    }
-    select {
-      background-color: #1e1e1e;
-      color: #f5f5f5;
+      background: linear-gradient(90deg, #182848, #4b6cb7);
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col items-center px-4 py-8">
+<body class="bg-gray-100 text-gray-900">
 
-  <!-- Header with Logo -->
-  <div class="w-full flex items-center justify-between max-w-4xl mb-8">
-    <a href="index.html" class="flex items-center space-x-2">
-      <img src="logo.png" alt="FixableUp Logo" width="64" height="64" class="w-16 h-16">
-      <span class="text-2xl font-bold luxury-gold">FixableUp</span>
+  <!-- Header -->
+  <header class="luxury-gradient p-4 flex items-center justify-between shadow-lg">
+    <!-- Logo -->
+    <a href="index.html">
+      <img src="logo.png" alt="FixableUp Logo" width="64" height="64" class="w-16">
     </a>
+
+    <!-- Hidden Menu Icon -->
+    <button id="menuToggle" class="text-white text-3xl md:hidden">&#9776;</button>
+
+    <!-- Menu -->
+    <nav id="menu" class="hidden md:flex space-x-6 text-white font-semibold">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="client_register.html" class="hover:underline">Get Quotes</a>
+      <a href="provider_register.html" class="hover:underline">Join as Provider</a>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden flex flex-col bg-white text-black p-4 space-y-4">
+    <a href="index.html">Home</a>
+    <a href="client_register.html">Get Quotes</a>
+    <a href="provider_register.html">Join as Provider</a>
   </div>
 
-  <!-- Form -->
-  <h1 class="text-3xl font-bold mb-6">Get 3 Quotes Fast</h1>
+  <!-- Form Section -->
+  <section class="max-w-2xl mx-auto mt-10 bg-white p-8 rounded-xl shadow-xl">
+    <h1 class="text-3xl font-bold mb-6 text-center luxury-gradient text-white p-2 rounded">Get Quotes Fast</h1>
+    <form class="space-y-6">
+      <!-- Name -->
+      <div>
+        <label class="block font-semibold mb-2">Your Name</label>
+        <input type="text" class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
 
-  <form action="#" class="w-full max-w-2xl space-y-6 luxury-bg p-8 rounded-2xl shadow-lg">
+      <!-- Email -->
+      <div>
+        <label class="block font-semibold mb-2">Your Email</label>
+        <input type="email" class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
 
-    <div>
-      <label for="name" class="block mb-2">Your Name</label>
-      <input type="text" id="name" name="name" required class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600">
-    </div>
+      <!-- Services Dropdown -->
+      <div>
+        <label class="block font-semibold mb-2">Select Service Needed</label>
+        <select class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+          <optgroup label="Home Services">
+            <option>Handyman</option>
+            <option>Plumbing</option>
+            <option>Electrical Repairs</option>
+            <option>Painting</option>
+          </optgroup>
+          <optgroup label="Cleaning">
+            <option>Home Cleaning</option>
+            <option>Solar Panel Cleaning</option>
+            <option>Carpet Cleaning</option>
+            <option>Window Cleaning</option>
+          </optgroup>
+          <optgroup label="Installations">
+            <option>Solar Installation</option>
+            <option>Aircon Installation</option>
+            <option>Security System Install</option>
+          </optgroup>
+          <optgroup label="Outdoor">
+            <option>Gardening</option>
+            <option>Paving</option>
+            <option>Pool Repairs</option>
+          </optgroup>
+        </select>
+      </div>
 
-    <div>
-      <label for="email" class="block mb-2">Your Email</label>
-      <input type="email" id="email" name="email" required class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600">
-    </div>
+      <!-- Message -->
+      <div>
+        <label class="block font-semibold mb-2">Describe Your Needs</label>
+        <textarea class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="4"></textarea>
+      </div>
 
-    <div>
-      <label for="phone" class="block mb-2">Your Phone</label>
-      <input type="tel" id="phone" name="phone" required class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600">
-    </div>
+      <!-- Submit -->
+      <button type="submit" class="luxury-btn text-white px-6 py-3 rounded-xl shadow hover:scale-105 transform transition">
+        Get My Quotes
+      </button>
+    </form>
+  </section>
 
-    <!-- Services Dropdown -->
-    <div>
-      <label for="service" class="block mb-2">Select Service Needed</label>
-      <select id="service" name="service" required class="w-full p-3 rounded-lg border border-gray-600">
-        <option value="">-- Choose a service --</option>
-
-        <optgroup label="Cleaning Services">
-          <option value="solar-cleaning">Solar Panel Cleaning</option>
-          <option value="gutter-cleaning">Gutter Cleaning</option>
-          <option value="window-cleaning">Window Cleaning</option>
-          <option value="pressure-washing">Pressure Washing</option>
-        </optgroup>
-
-        <optgroup label="Home Repairs">
-          <option value="plumbing">Plumbing</option>
-          <option value="electrical">Electrical Repairs</option>
-          <option value="painting">Painting</option>
-          <option value="roofing">Roofing Repairs</option>
-        </optgroup>
-
-        <optgroup label="Installations">
-          <option value="solar-install">Solar Panel Installation</option>
-          <option value="aircon-install">Air Conditioning Installation</option>
-          <option value="security-system">Security System Installation</option>
-          <option value="flooring">Flooring Installation</option>
-        </optgroup>
-
-        <optgroup label="Other">
-          <option value="handyman">General Handyman</option>
-          <option value="landscaping">Landscaping</option>
-          <option value="moving">Moving Services</option>
-          <option value="pest-control">Pest Control</option>
-        </optgroup>
-
-      </select>
-    </div>
-
-    <div>
-      <label for="details" class="block mb-2">Describe Your Job</label>
-      <textarea id="details" name="details" rows="4" required class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600"></textarea>
-    </div>
-
-    <button type="submit" class="luxury-btn px-6 py-3 rounded-xl text-lg font-semibold shadow hover:shadow-lg transition">
-      Get Quotes
-    </button>
-  </form>
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
 
 </body>
 </html>
