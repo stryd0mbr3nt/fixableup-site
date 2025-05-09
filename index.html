@@ -1,24 +1,93 @@
-<!-- index.html (Landing Page) -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FixableUp - Get Quotes for Services in Upington | Local Fixers</title>
-  <meta name="description" content="Get multiple quotes for home services in Upington. Trusted local providers for repairs, installations, and cleaning. Fast and free!">
-  <meta name="keywords" content="Upington services, get quotes, home repair Upington, local services, FixableUp, solar cleaning, handyman, plumber, electrician">
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 text-gray-900">
-  <div class="min-h-screen flex flex-col items-center justify-center">
-    <img src="logo.png" alt="FixableUp Logo" width="128" height="128" class="w-32 mb-6">
-    <h1 class="text-4xl font-bold mb-4">Get Local Services Fast</h1>
-    <p class="mb-8 text-center max-w-md">Get 3 quotes from trusted providers in minutes. Serving Upington and beyond. <strong>Trusted by 1000+ satisfied customers and verified service providers.</strong></p>
+import React from "react";
 
-    <div class="flex space-x-4">
-      <a href="client_register.html" class="bg-blue-600 text-white px-6 py-3 rounded-xl shadow hover:bg-blue-700">Get Quotes</a>
-      <a href="provider_register.html" class="bg-green-600 text-white px-6 py-3 rounded-xl shadow hover:bg-green-700">Join as Provider</a>
+export default function IndexPage() {
+  return (
+    <div className="bg-[#f9f9f9] text-[#1E1E1E]">
+      {/* Hero Section */}
+      <section className="min-h-screen flex flex-col justify-center items-center text-center px-4">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+          Upington’s Premier Service Finder
+        </h1>
+        <p className="text-lg md:text-xl text-[#5A5A5A] mb-8">
+          Connect instantly with verified experts for every home & business need.
+        </p>
+        <button className="px-6 py-3 rounded-full text-white font-semibold text-lg shadow-md transition duration-300"
+          style={{
+            background: "linear-gradient(90deg, #C9A36D 0%, #B68A56 100%)",
+          }}>
+          Get Free Quotes
+        </button>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20 px-4 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { title: "Verified Experts", desc: "Only trusted and qualified pros." },
+          { title: "Fast Quotes", desc: "Get responses within hours, not days." },
+          { title: "Local Trust", desc: "Loved by Upington’s home & business owners." },
+        ].map((item, i) => (
+          <div key={i} className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+            <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
+            <p className="text-[#5A5A5A]">{item.desc}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* Popular Services */}
+      <section className="py-20 px-4 max-w-7xl mx-auto">
+        <h2 className="text-3xl font-bold mb-10 text-center">Popular Services</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          {[
+            "Solar Installers",
+            "Panel Cleaners",
+            "Plumbers",
+            "Electricians",
+          ].map((service, i) => (
+            <div key={i} className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition cursor-pointer">
+              <div className="mb-4 text-5xl">🔧</div>
+              <p className="font-semibold">{service}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 px-4 max-w-7xl mx-auto bg-[#f0f0f0] rounded-3xl">
+        <h2 className="text-3xl font-bold mb-10 text-center">What Locals Say</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { name: "Thabo M.", quote: "FixableUp connected me with great solar experts in no time!" },
+            { name: "Elaine K.", quote: "Got fast quotes and excellent service. Highly recommend!" },
+            { name: "Johan P.", quote: "Trusted professionals and quick responses every time." },
+          ].map((t, i) => (
+            <div key={i} className="bg-white rounded-2xl p-6 shadow-md">
+              <p className="italic mb-4">“{t.quote}”</p>
+              <p className="font-semibold text-[#C9A36D]">- {t.name}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Lead Form */}
+      <section className="py-20 px-4 max-w-3xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-6">Tell us what you need</h2>
+        <form className="space-y-4">
+          <input type="text" placeholder="Your Name" className="w-full p-4 rounded-xl border border-[#ddd] focus:outline-none focus:border-[#C9A36D]" />
+          <input type="text" placeholder="Service Needed" className="w-full p-4 rounded-xl border border-[#ddd] focus:outline-none focus:border-[#C9A36D]" />
+          <input type="email" placeholder="Your Email or Phone" className="w-full p-4 rounded-xl border border-[#ddd] focus:outline-none focus:border-[#C9A36D]" />
+          <button type="submit" className="w-full py-4 rounded-full text-white font-semibold text-lg shadow-md transition duration-300"
+            style={{
+              background: "linear-gradient(90deg, #C9A36D 0%, #B68A56 100%)",
+            }}>
+            Get My Quotes
+          </button>
+        </form>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-10 text-center text-[#5A5A5A]">
+        Proudly serving Upington | FixableUp © 2025
+      </footer>
     </div>
-  </div>
-</body>
-</html>
+  );
+}
