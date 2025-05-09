@@ -1,129 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FixableUp - Client Request Form</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CDN -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Request Quotes | FixableUp</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Alpine.js -->
-  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #1e1e2f;
-      color: #fff;
+      background-color: #121212;
+      color: #f5f5f5;
     }
-    .text-gold-400 { color: #FFD700; }
-    .hover\:bg-gold-500:hover { background-color: #FFC300; }
+    .luxury-gold {
+      color: #d4af37;
+    }
+    .luxury-bg {
+      background-color: #1e1e1e;
+    }
+    .luxury-btn {
+      background-color: #d4af37;
+      color: #121212;
+    }
+    .luxury-btn:hover {
+      background-color: #bfa334;
+    }
+    select {
+      background-color: #1e1e1e;
+      color: #f5f5f5;
+    }
   </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col items-center px-4 py-8">
 
-  <!-- Header -->
-  <header class="flex items-center justify-between p-4 bg-[#1e1e2f] shadow-md">
+  <!-- Header with Logo -->
+  <div class="w-full flex items-center justify-between max-w-4xl mb-8">
     <a href="index.html" class="flex items-center space-x-2">
-      <img src="logo.png" alt="FixableUp Logo" class="w-10 h-10 rounded-full">
-      <span class="font-bold text-lg text-white">FixableUp</span>
+      <img src="logo.png" alt="FixableUp Logo" width="64" height="64" class="w-16 h-16">
+      <span class="text-2xl font-bold luxury-gold">FixableUp</span>
     </a>
-  </header>
+  </div>
 
-  <!-- Main -->
-  <main class="flex-grow container mx-auto p-6 max-w-2xl">
-    <h1 class="text-3xl font-bold mb-6 text-center text-gold-400">Get Your Quote</h1>
+  <!-- Form -->
+  <h1 class="text-3xl font-bold mb-6">Get 3 Quotes Fast</h1>
 
-    <form action="submit.php" method="POST" class="bg-[#2e2e40] p-6 rounded-lg shadow-lg space-y-4">
+  <form action="#" class="w-full max-w-2xl space-y-6 luxury-bg p-8 rounded-2xl shadow-lg">
 
-      <!-- Name -->
-      <div>
-        <label class="block mb-1 text-gold-400">Full Name</label>
-        <input type="text" name="name" required class="w-full p-3 rounded bg-[#1e1e2f] border border-[#444] text-white">
-      </div>
+    <div>
+      <label for="name" class="block mb-2">Your Name</label>
+      <input type="text" id="name" name="name" required class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600">
+    </div>
 
-      <!-- Email -->
-      <div>
-        <label class="block mb-1 text-gold-400">Email Address</label>
-        <input type="email" name="email" required class="w-full p-3 rounded bg-[#1e1e2f] border border-[#444] text-white">
-      </div>
+    <div>
+      <label for="email" class="block mb-2">Your Email</label>
+      <input type="email" id="email" name="email" required class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600">
+    </div>
 
-      <!-- Phone -->
-      <div>
-        <label class="block mb-1 text-gold-400">Phone Number</label>
-        <input type="tel" name="phone" required class="w-full p-3 rounded bg-[#1e1e2f] border border-[#444] text-white">
-      </div>
+    <div>
+      <label for="phone" class="block mb-2">Your Phone</label>
+      <input type="tel" id="phone" name="phone" required class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600">
+    </div>
 
-      <!-- Services Dropdown -->
-      <div x-data="{ open: false, selected: '', options: [
-        { group: 'Plumbing', items: ['General Plumbing', 'Emergency Plumbing', 'Geyser Installation/Repair', 'Drain Unblocking'] },
-        { group: 'Electrical', items: ['General Electrical Work', 'Electrical Certificates (CoC)', 'Solar System Installation'] },
-        { group: 'Solar Services', items: ['Solar Panel Cleaning', 'Solar Installation', 'Solar Maintenance'] },
-        { group: 'Building & Construction', items: ['Home Renovations', 'Paving', 'Painting', 'Roof Repairs'] },
-        { group: 'Cleaning Services', items: ['Home Cleaning', 'Office Cleaning', 'Carpet & Upholstery Cleaning'] },
-        { group: 'Handyman & Repairs', items: ['General Handyman', 'Furniture Assembly', 'Door & Window Repairs'] },
-        { group: 'Appliance Repairs', items: ['Fridge Repair', 'Washing Machine Repair', 'Stove & Oven Repair'] },
-        { group: 'Garden & Outdoor', items: ['General Garden Services', 'Irrigation Systems', 'Tree Felling'] },
-        { group: 'Security', items: ['CCTV Installation', 'Electric Fencing', 'Alarm Systems'] },
-        { group: 'Other', items: ['Other (Please specify below)'] }
-      ] }" class="relative">
+    <!-- Services Dropdown -->
+    <div>
+      <label for="service" class="block mb-2">Select Service Needed</label>
+      <select id="service" name="service" required class="w-full p-3 rounded-lg border border-gray-600">
+        <option value="">-- Choose a service --</option>
 
-        <label class="block mb-1 text-gold-400">Select Service Needed</label>
+        <optgroup label="Cleaning Services">
+          <option value="solar-cleaning">Solar Panel Cleaning</option>
+          <option value="gutter-cleaning">Gutter Cleaning</option>
+          <option value="window-cleaning">Window Cleaning</option>
+          <option value="pressure-washing">Pressure Washing</option>
+        </optgroup>
 
-        <!-- Dropdown button -->
-        <button type="button" @click="open = !open" 
-          class="w-full p-3 border rounded bg-[#1e1e2f] text-white shadow-lg text-left flex justify-between items-center">
-          <span x-text="selected || 'Select Service Needed'"></span>
-          <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
+        <optgroup label="Home Repairs">
+          <option value="plumbing">Plumbing</option>
+          <option value="electrical">Electrical Repairs</option>
+          <option value="painting">Painting</option>
+          <option value="roofing">Roofing Repairs</option>
+        </optgroup>
 
-        <!-- Dropdown options -->
-        <div x-show="open" @click.away="open = false" 
-          class="absolute z-10 bg-[#2e2e40] text-white w-full border border-[#444] mt-1 rounded shadow-xl max-h-60 overflow-y-auto">
+        <optgroup label="Installations">
+          <option value="solar-install">Solar Panel Installation</option>
+          <option value="aircon-install">Air Conditioning Installation</option>
+          <option value="security-system">Security System Installation</option>
+          <option value="flooring">Flooring Installation</option>
+        </optgroup>
 
-          <template x-for="group in options" :key="group.group">
-            <div>
-              <div class="px-3 py-2 bg-[#3e3e50] text-sm font-bold text-gold-400" x-text="group.group"></div>
-              <template x-for="item in group.items" :key="item">
-                <div @click="selected = item; open = false" 
-                  class="px-3 py-2 hover:bg-gold-500 hover:text-black cursor-pointer transition-all duration-200" x-text="item">
-                </div>
-              </template>
-            </div>
-          </template>
-        </div>
+        <optgroup label="Other">
+          <option value="handyman">General Handyman</option>
+          <option value="landscaping">Landscaping</option>
+          <option value="moving">Moving Services</option>
+          <option value="pest-control">Pest Control</option>
+        </optgroup>
 
-        <!-- Hidden input -->
-        <input type="hidden" name="service" :value="selected" required>
-        <p class="text-sm text-gray-400 mt-1">Can't find your service? Choose "Other" and describe it below.</p>
-      </div>
+      </select>
+    </div>
 
-      <!-- Address -->
-      <div>
-        <label class="block mb-1 text-gold-400">Physical Address</label>
-        <textarea name="address" required class="w-full p-3 rounded bg-[#1e1e2f] border border-[#444] text-white"></textarea>
-      </div>
+    <div>
+      <label for="details" class="block mb-2">Describe Your Job</label>
+      <textarea id="details" name="details" rows="4" required class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600"></textarea>
+    </div>
 
-      <!-- Submit -->
-      <div class="text-center">
-        <button type="submit" class="bg-gold-400 hover:bg-gold-500 text-black font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300">
-          Submit Request
-        </button>
-      </div>
-
-    </form>
-  </main>
-
-  <!-- Footer -->
-  <footer class="text-center text-gray-500 py-4 text-sm">
-    &copy; 2025 FixableUp. All rights reserved.
-  </footer>
+    <button type="submit" class="luxury-btn px-6 py-3 rounded-xl text-lg font-semibold shadow hover:shadow-lg transition">
+      Get Quotes
+    </button>
+  </form>
 
 </body>
 </html>
