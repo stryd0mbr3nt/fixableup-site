@@ -39,13 +39,70 @@
       <input type="text" name="location" placeholder="Your Location (e.g., Upington)" class="input" required>
 
       <select name="service" class="input" required>
-        <option value="">Select Service Needed</option>
-        <option value="plumber">Plumber</option>
-        <option value="electrician">Electrician</option>
-        <option value="solar_cleaning">Solar Panel Cleaning</option>
-        <option value="handyman">Handyman</option>
-        <option value="other">Other</option>
-      </select>
+  <option value="">Select Service Needed</option>
+
+  <optgroup label="Plumbing">
+    <option value="plumbing_general">General Plumbing</option>
+    <option value="plumbing_emergency">Emergency Plumbing</option>
+    <option value="plumbing_geyser">Geyser Installation/Repair</option>
+    <option value="plumbing_blockage">Drain Unblocking</option>
+  </optgroup>
+
+  <optgroup label="Electrical">
+    <option value="electrical_general">General Electrical Work</option>
+    <option value="electrical_certificates">Electrical Certificates (CoC)</option>
+    <option value="electrical_solar">Solar System Installation</option>
+  </optgroup>
+
+  <optgroup label="Solar Services">
+    <option value="solar_cleaning">Solar Panel Cleaning</option>
+    <option value="solar_installation">Solar Installation</option>
+    <option value="solar_maintenance">Solar Maintenance</option>
+  </optgroup>
+
+  <optgroup label="Building & Construction">
+    <option value="building_renovations">Home Renovations</option>
+    <option value="building_paving">Paving</option>
+    <option value="building_painting">Painting</option>
+    <option value="building_roofing">Roof Repairs</option>
+  </optgroup>
+
+  <optgroup label="Cleaning Services">
+    <option value="cleaning_home">Home Cleaning</option>
+    <option value="cleaning_office">Office Cleaning</option>
+    <option value="cleaning_carpet">Carpet & Upholstery Cleaning</option>
+  </optgroup>
+
+  <optgroup label="Handyman & Repairs">
+    <option value="handyman_general">General Handyman</option>
+    <option value="handyman_furniture">Furniture Assembly</option>
+    <option value="handyman_doors">Door & Window Repairs</option>
+  </optgroup>
+
+  <optgroup label="Appliance Repairs">
+    <option value="appliance_fridge">Fridge Repair</option>
+    <option value="appliance_washing_machine">Washing Machine Repair</option>
+    <option value="appliance_stove">Stove & Oven Repair</option>
+  </optgroup>
+
+  <optgroup label="Garden & Outdoor">
+    <option value="garden_services">General Garden Services</option>
+    <option value="garden_irrigation">Irrigation Systems</option>
+    <option value="garden_treefelling">Tree Felling</option>
+  </optgroup>
+
+  <optgroup label="Security">
+    <option value="security_cctv">CCTV Installation</option>
+    <option value="security_fencing">Electric Fencing</option>
+    <option value="security_alarms">Alarm Systems</option>
+  </optgroup>
+
+  <optgroup label="Other">
+    <option value="other">Other (Please specify below)</option>
+  </optgroup>
+</select>
+<p class="text-sm text-gray-400 mt-1">Can't find your service? Choose "Other" and describe it below.</p>
+
 
       <textarea name="details" rows="4" placeholder="Describe your job (optional)" class="input"></textarea>
 
