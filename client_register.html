@@ -110,5 +110,25 @@
     });
   </script>
 
+  <script>
+  document.getElementById('quoteForm').addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const formData = new FormData(e.target)
+    const data = Object.fromEntries(formData.entries())
+
+    const res = await fetch('/api/submitClient', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+
+    if (res.ok) {
+      alert('Success! We will contact you soon.')
+    } else {
+      alert('Something went wrong.')
+    }
+  })
+</script>
+
 </body>
 </html>
