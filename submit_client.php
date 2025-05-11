@@ -1,6 +1,6 @@
 <?php
 // === Config ===
-$adminEmail = "youradmin@fixable.online";  // Change to your real admin email
+$adminEmail = "no-reply@fixableup.online";  // Change to your real admin email
 $csvFile = "clients.csv";
 
 // === Get Data ===
