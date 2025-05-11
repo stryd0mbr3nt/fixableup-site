@@ -13,6 +13,16 @@ function load_csv($file) {
   return $rows;
 }
 
+// === Save CSV Data ===
+function save_csv($file, $rows) {
+  $fp = fopen($file, 'w');
+  fputcsv($fp, array_keys($rows[0]));
+  foreach ($rows as $r) {
+    fputcsv($fp, $r);
+  }
+  fclose($fp);
+}
+
 // === Verify logic ===
 if (isset($_GET['verify']) && isset($_GET['type']) && isset($_GET['email'])) {
   $type = $_GET['type'];
@@ -20,23 +30,62 @@ if (isset($_GET['verify']) && isset($_GET['type']) && isset($_GET['email'])) {
   $file = ($type === 'client') ? 'clients.csv' : 'providers.csv';
 
   $rows = load_csv($file);
-  $updatedRows = [];
-
-  foreach ($rows as $row) {
+  foreach ($rows as &$row) {
     if ($row['Email'] === $email) {
       $row['Verified'] = 'Yes';
     }
-    $updatedRows[] = $row;
+  }
+  save_csv($file, $rows);
+  header("Location: admin_dashboard.php");
+  exit();
+}
+
+// === Match logic ===
+if (isset($_GET['match']) && isset($_GET['email'])) {
+  $clientEmail = $_GET['email'];
+  $clients = load_csv('clients.csv');
+  $providers = load_csv('providers.csv');
+
+  // Find the client
+  foreach ($clients as &$c) {
+    if ($c['Email'] === $clientEmail && $c['Matched'] !== 'Yes') {
+      $client = $c;
+
+      // Filter matching providers
+      $matches = [];
+      foreach ($providers as $p) {
+        if ($p['Verified'] === 'Yes' &&
+            stripos($p['Service'], $c['Service']) !== false &&
+            stripos($p['Location'], $c['Location']) !== false) {
+          $matches[] = $p;
+        }
+      }
+
+      // Pick 3 random
+      shuffle($matches);
+      $selected = array_slice($matches, 0, 3);
+
+      // Send emails
+      foreach ($selected as $p) {
+        $msg = "Hi {$p['Name']},\n\nYou have a new lead from FixableUp:\n\n"
+             . "Client Name: {$c['Name']}\n"
+             . "Client Email: {$c['Email']}\n"
+             . "Client Location: {$c['Location']}\n"
+             . "Service Needed: {$c['Service']}\n"
+             . "Details: {$c['Details']}\n"
+             . "Date: {$c['Date']}\n\n"
+             . "Please contact the client directly.\n\nRegards,\nFixableUp Team";
+        mail($p['Email'], "New Lead from FixableUp", $msg);
+      }
+
+      // Mark client as matched
+      $c['Matched'] = 'Yes';
+      break;
+    }
   }
 
   // Save back
-  $fp = fopen($file, 'w');
-  fputcsv($fp, array_keys($updatedRows[0]));
-  foreach ($updatedRows as $r) {
-    fputcsv($fp, $r);
-  }
-  fclose($fp);
-
+  save_csv('clients.csv', $clients);
   header("Location: admin_dashboard.php");
   exit();
 }
@@ -67,6 +116,7 @@ $providers = load_csv('providers.csv');
           <th class="p-2">Location</th>
           <th class="p-2">Service</th>
           <th class="p-2">Verified</th>
+          <th class="p-2">Matched</th>
           <th class="p-2">Actions</th>
         </tr>
       </thead>
@@ -78,11 +128,15 @@ $providers = load_csv('providers.csv');
           <td class="p-2"><?php echo htmlspecialchars($c['Location']); ?></td>
           <td class="p-2"><?php echo htmlspecialchars($c['Service']); ?></td>
           <td class="p-2"><?php echo $c['Verified']; ?></td>
-          <td class="p-2">
+          <td class="p-2"><?php echo $c['Matched'] ?? 'No'; ?></td>
+          <td class="p-2 space-x-2">
             <?php if ($c['Verified'] !== 'Yes'): ?>
               <a href="?verify=1&type=client&email=<?php echo urlencode($c['Email']); ?>" class="bg-green-500 text-black px-2 py-1 rounded">Verify</a>
+            <?php endif; ?>
+            <?php if (($c['Matched'] ?? 'No') !== 'Yes'): ?>
+              <a href="?match=1&email=<?php echo urlencode($c['Email']); ?>" class="bg-blue-500 text-black px-2 py-1 rounded">Match</a>
             <?php else: ?>
-              ✅
+              ✅ Matched
             <?php endif; ?>
           </td>
         </tr>
