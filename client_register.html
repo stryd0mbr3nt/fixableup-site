@@ -61,7 +61,7 @@
       <h1 class="text-3xl font-bold luxury text-center mb-2">Get 3 Quotes</h1>
       <p class="text-center text-gray-400 mb-6">Trusted by <span class="luxury font-semibold">1000+ Upington clients</span>. It’s free and fast.</p>
 
-      <form action="submit_form.php" method="POST" class="space-y-4">
+      <form id="quoteForm" class="space-y-4">
         <input type="text" name="name" placeholder="Your Full Name" class="input" required>
         <input type="email" name="email" placeholder="Your Email Address" class="input" required>
         <input type="text" name="location" placeholder="Your Location (e.g., Upington)" class="input" required>
@@ -104,30 +104,35 @@
   </main>
 
   <script>
-    // Mobile menu toggle
-    document.getElementById('menuToggle').addEventListener('click', () => {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
-    });
-  </script>
+  // Mobile menu toggle
+  document.getElementById('menuToggle').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+  });
 
-  <script>
+  // Form submission
   document.getElementById('quoteForm').addEventListener('submit', async (e) => {
-    e.preventDefault()
-    const formData = new FormData(e.target)
-    const data = Object.fromEntries(formData.entries())
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
 
-    const res = await fetch('/api/submitClient', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    })
+    try {
+      const res = await fetch('/api/submitClient', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
 
-    if (res.ok) {
-      alert('Success! We will contact you soon.')
-    } else {
-      alert('Something went wrong.')
+      if (res.ok) {
+        alert('✅ Success! We will contact you soon.');
+        e.target.reset(); // Optional: clear the form
+      } else {
+        alert('❌ Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('❌ Network error. Please try again later.');
     }
-  })
+  });
 </script>
 
 </body>
