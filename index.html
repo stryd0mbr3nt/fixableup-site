@@ -72,28 +72,6 @@
   <textarea name="details" placeholder="More Details"></textarea>
   <button type="submit">Get My 3 Quotes Now</button>
 </form>
-
-<script>
-  document.getElementById('quoteForm').addEventListener('submit', async (e) => {
-    e.preventDefault()
-    const formData = new FormData(e.target)
-    const data = Object.fromEntries(formData.entries())
-
-    const res = await fetch('/api/submitClient', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    })
-
-    if (res.ok) {
-      alert('✅ Success! We will contact you soon.')
-      e.target.reset()
-    } else {
-      alert('❌ Something went wrong. Please try again.')
-    }
-  })
-</script>
-
   
 </body>
 </html>
