@@ -63,5 +63,37 @@
   <footer class="bg-[#121212] py-8 text-center text-gray-500">
     &copy; 2025 FixableUp. All rights reserved.
   </footer>
+
+<form id="quoteForm" class="space-y-4">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <input type="text" name="location" placeholder="Your Location" required />
+  <input type="text" name="service" placeholder="Service Needed" required />
+  <textarea name="details" placeholder="More Details"></textarea>
+  <button type="submit">Get My 3 Quotes Now</button>
+</form>
+
+<script>
+  document.getElementById('quoteForm').addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const formData = new FormData(e.target)
+    const data = Object.fromEntries(formData.entries())
+
+    const res = await fetch('/api/submitClient', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+
+    if (res.ok) {
+      alert('✅ Success! We will contact you soon.')
+      e.target.reset()
+    } else {
+      alert('❌ Something went wrong. Please try again.')
+    }
+  })
+</script>
+
+  
 </body>
 </html>
