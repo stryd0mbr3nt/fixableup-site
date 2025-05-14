@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Get Quotes - FixableUp | Upington's Trusted Services</title>
-  <meta name="description" content="Get 3 quotes from verified service providers in Upington. Quick, free and easy. Trusted by over 1000 satisfied locals.">
-  <meta name="keywords" content="Upington quotes, home services, FixableUp, get quotes, plumbers, electricians, solar cleaning, handyman">
+  <meta name="description" content="Get 3 quotes from verified service providers in Upington. Quick, free and easy. Trusted by over 1000 satisfied locals." />
+  <meta name="keywords" content="Upington quotes, home services, FixableUp, get quotes, plumbers, electricians, solar cleaning, handyman" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { background-color: #0F0F0F; color: #E5E5E5; }
-    .luxury { color: #D4AF37; } /* Gold tone */
+    .luxury { color: #D4AF37; }
     .input, select, textarea {
       background-color: #1C1C1C;
       border: 1px solid #333;
@@ -30,16 +30,13 @@
 
   <!-- Header -->
   <header class="flex items-center justify-between p-4 bg-black bg-opacity-80">
-    <!-- Clickable Logo -->
     <a href="index.html" class="flex items-center space-x-2">
-      <img src="logo.png" alt="FixableUp Logo" width="48" height="48" class="w-12 hover:scale-110 transition">
+      <img src="logo.png" alt="FixableUp Logo" width="48" height="48" class="w-12 hover:scale-110 transition" />
       <span class="luxury text-xl font-bold hidden sm:inline">FixableUp</span>
     </a>
 
-    <!-- Menu Button -->
     <button id="menuToggle" class="text-3xl text-gray-300 md:hidden">&#9776;</button>
 
-    <!-- Menu Links -->
     <nav id="menu" class="hidden md:flex space-x-6 text-gray-300 font-semibold">
       <a href="index.html" class="hover:text-white">Home</a>
       <a href="client_register.html" class="hover:text-white">Get Quotes</a>
@@ -57,17 +54,18 @@
   <!-- Form -->
   <main class="flex-grow flex items-center justify-center p-6">
     <div class="max-w-md w-full bg-black bg-opacity-70 p-8 rounded-2xl shadow-2xl">
-      <img src="logo.png" alt="FixableUp Logo" width="96" height="96" class="mx-auto mb-4 hover:scale-110 transition cursor-pointer" onclick="window.location.href='index.html'">
+      <img src="logo.png" alt="FixableUp Logo" width="96" height="96" class="mx-auto mb-4 hover:scale-110 transition cursor-pointer" onclick="window.location.href='index.html'" />
       <h1 class="text-3xl font-bold luxury text-center mb-2">Get 3 Quotes</h1>
-      <p class="text-center text-gray-400 mb-6">Trusted by <span class="luxury font-semibold">1000+ Upington clients</span>. It’s free and fast.</p>
+      <p class="text-center text-gray-400 mb-6">Trusted by <span class="luxury font-semibold">1000+ clients</span>. It’s free and fast.</p>
 
       <form id="quoteForm" class="space-y-4">
-        <input type="text" name="name" placeholder="Your Full Name" class="input" required autocomplete="name">
-        <input type="email" name="email" placeholder="Your Email Address" class="input" required autocomplete="email">
-        <input type="text" name="location" placeholder="Your Location (e.g., Upington)" class="input" required autocomplete="address-level2">
+        <input type="text" name="name" placeholder="Your Full Name" class="input" required autocomplete="name" />
+        <input type="email" name="email" placeholder="Your Email Address" class="input" required autocomplete="email" />
+        <input type="text" name="location" placeholder="Your Location (e.g., Upington)" class="input" required autocomplete="address-level2" />
 
         <select name="service" class="input" required>
           <option value="">Select Service Needed</option>
+
           <optgroup label="Home Services">
             <option value="plumber">Plumber</option>
             <option value="electrician">Electrician</option>
@@ -76,21 +74,30 @@
             <option value="painter">Painter</option>
             <option value="tiler">Tiler</option>
           </optgroup>
+
           <optgroup label="Cleaning Services">
             <option value="home_cleaning">Home Cleaning</option>
             <option value="carpet_cleaning">Carpet Cleaning</option>
             <option value="window_cleaning">Window Cleaning</option>
           </optgroup>
+
           <optgroup label="Installations">
             <option value="aircon">Aircon Installation</option>
             <option value="security">Security System Install</option>
             <option value="solar_install">Solar Panel Install</option>
           </optgroup>
+
+          <optgroup label="Automotive Services">
+            <option value="car_mechanic">Car Mechanic</option>
+            <option value="window_tinting">Window Tinting</option>
+          </optgroup>
+
           <optgroup label="Outdoor">
             <option value="gardening">Gardening</option>
             <option value="paving">Paving</option>
             <option value="pool">Pool Repairs</option>
           </optgroup>
+
           <option value="other">Other</option>
         </select>
 
@@ -104,12 +111,10 @@
   </main>
 
   <script>
-    // Mobile menu toggle
     document.getElementById('menuToggle').addEventListener('click', () => {
       document.getElementById('mobileMenu').classList.toggle('hidden');
     });
 
-    // Form submission
     document.getElementById('quoteForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const formData = new FormData(e.target);
@@ -124,7 +129,7 @@
 
         if (res.ok) {
           alert('✅ Success! We will contact you soon.');
-          e.target.reset(); // Clear form
+          e.target.reset();
         } else {
           alert('❌ Something went wrong. Please try again.');
         }
