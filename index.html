@@ -1,70 +1,144 @@
+<!-- client_register.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FixableUp - Premium Services in Upington</title>
-  <meta name="description" content="Get quotes from verified, trusted, and luxury-level local service providers in Upington. FixableUp connects you fast and reliably.">
-  <meta name="keywords" content="Upington services, luxury home services, quotes Upington, trusted providers, FixableUp, solar cleaning, handyman, plumber, electrician">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Quotes - FixableUp | Upington's Trusted Services</title>
+  <meta name="description" content="Get 3 quotes from verified service providers in Upington. Quick, free and easy. Trusted by over 1000 satisfied locals." />
+  <meta name="keywords" content="Upington quotes, home services, FixableUp, get quotes, plumbers, electricians, solar cleaning, handyman" />
+
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #0F0F0F; color: #E5E5E5; }
+    .luxury { color: #D4AF37; }
+    .input, select, textarea {
+      background-color: #1C1C1C;
+      border: 1px solid #333;
+      padding: 0.75rem;
+      width: 100%;
+      border-radius: 0.5rem;
+      color: #E5E5E5;
+    }
+    .input:focus {
+      border-color: #D4AF37;
+      outline: none;
+    }
+  </style>
 </head>
-<body class="bg-[#121212] text-white font-sans">
-  <!-- Navbar / Logo -->
-<header class="w-full py-4 flex justify-center bg-[#1E1E1E] shadow-xl">
-  <div class="w-[120px] h-[120px] flex items-center justify-center">
-    <img src="logo.png" alt="FixableUp Logo" class="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300 ring-2 ring-[#D4AF37] rounded-full">
+<body class="min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="flex items-center justify-between p-4 bg-black bg-opacity-80">
+    <a href="index.html" class="flex items-center space-x-2">
+      <img src="logo.png" alt="FixableUp Logo" width="48" height="48" class="w-12 hover:scale-110 transition" />
+      <span class="luxury text-xl font-bold hidden sm:inline">FixableUp</span>
+    </a>
+
+    <button id="menuToggle" class="text-3xl text-gray-300 md:hidden">&#9776;</button>
+
+    <nav id="menu" class="hidden md:flex space-x-6 text-gray-300 font-semibold">
+      <a href="index.html" class="hover:text-white">Home</a>
+      <a href="client_register.html" class="hover:text-white">Get Quotes</a>
+      <a href="provider_register.html" class="hover:text-white">Join as Provider</a>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden flex flex-col bg-black bg-opacity-90 text-gray-300 p-4 space-y-4">
+    <a href="index.html" class="hover:text-white">Home</a>
+    <a href="client_register.html" class="hover:text-white">Get Quotes</a>
+    <a href="provider_register.html" class="hover:text-white">Join as Provider</a>
   </div>
-</header>
 
+  <!-- Form -->
+  <main class="flex-grow flex items-center justify-center p-6">
+    <div class="max-w-md w-full bg-black bg-opacity-70 p-8 rounded-2xl shadow-2xl">
+      <img src="logo.png" alt="FixableUp Logo" width="96" height="96" class="mx-auto mb-4 hover:scale-110 transition cursor-pointer" onclick="window.location.href='index.html'" />
+      <h1 class="text-3xl font-bold luxury text-center mb-2">Get 3 Quotes</h1>
+      <p class="text-center text-gray-400 mb-6">Trusted by <span class="luxury font-semibold">1000+ Upington clients</span>. It’s free and fast.</p>
 
-  <!-- Hero Section -->
-  <section class="text-center py-24 px-6">
-    <h1 class="text-6xl font-black text-[#D4AF37] mb-8 drop-shadow-lg">Luxury Services. Local Experts.</h1>
-    <p class="text-xl max-w-3xl mx-auto mb-10 text-gray-300">FixableUp connects top-tier clients with elite, pre-vetted service pros. Get competitive quotes — fast, fair, and flawless.</p>
-    <div class="flex justify-center space-x-8">
-      <a href="client_register.html" class="bg-[#D4AF37] text-black px-10 py-5 rounded-full text-lg font-semibold hover:bg-yellow-500 transition-colors duration-300">Get Quotes</a>
-      <a href="provider_register.html" class="border-2 border-[#D4AF37] text-[#D4AF37] px-10 py-5 rounded-full text-lg font-semibold hover:bg-[#D4AF37] hover:text-black transition-colors duration-300">Join as Provider</a>
+      <form id="quoteForm" class="space-y-4">
+        <input type="text" name="name" placeholder="Your Full Name" class="input" required autocomplete="name" />
+        <input type="email" name="email" placeholder="Your Email Address" class="input" required autocomplete="email" />
+        <input type="text" name="location" placeholder="Your Location (e.g., Upington)" class="input" required autocomplete="address-level2" />
+
+        <select name="service" class="input" required>
+          <option value="">Select Service Needed</option>
+
+          <optgroup label="Home Services">
+            <option value="plumber">Plumber</option>
+            <option value="electrician">Electrician</option>
+            <option value="solar_cleaning">Solar Panel Cleaning</option>
+            <option value="handyman">Handyman</option>
+            <option value="painter">Painter</option>
+            <option value="tiler">Tiler</option>
+          </optgroup>
+
+          <optgroup label="Cleaning Services">
+            <option value="home_cleaning">Home Cleaning</option>
+            <option value="carpet_cleaning">Carpet Cleaning</option>
+            <option value="window_cleaning">Window Cleaning</option>
+          </optgroup>
+
+          <optgroup label="Installations">
+            <option value="aircon">Aircon Installation</option>
+            <option value="security">Security System Install</option>
+            <option value="solar_install">Solar Panel Install</option>
+          </optgroup>
+
+          <optgroup label="Automotive Services">
+            <option value="car_mechanic">Car Mechanic</option>
+            <option value="window_tinting">Window Tinting</option>
+          </optgroup>
+
+          <optgroup label="Outdoor">
+            <option value="gardening">Gardening</option>
+            <option value="paving">Paving</option>
+            <option value="pool">Pool Repairs</option>
+          </optgroup>
+
+          <option value="other">Other</option>
+        </select>
+
+        <textarea name="details" rows="4" placeholder="Describe your job (optional)" class="input"></textarea>
+
+        <button type="submit" class="w-full bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-semibold py-3 rounded-xl hover:from-yellow-500 hover:to-yellow-300 transition">Get My 3 Quotes Now</button>
+      </form>
+
+      <p class="text-center text-gray-500 text-sm mt-6">We respect your privacy. Your info goes only to verified providers.</p>
     </div>
-  </section>
+  </main>
 
-  <!-- Why Us Section -->
-  <section class="bg-[#1E1E1E] py-24 px-6">
-    <h2 class="text-5xl font-bold text-center text-white mb-16">Why Choose FixableUp?</h2>
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-      <div class="text-center p-6 bg-[#191919] rounded-2xl shadow-md hover:shadow-[#D4AF37]/50 transition-shadow duration-300">
-        <div class="text-6xl mb-4">✅</div>
-        <h3 class="text-2xl font-semibold mb-3 text-[#D4AF37]">Verified Providers</h3>
-        <p class="text-gray-400">Every expert on our platform has been screened, rated, and approved. You get peace of mind with every service.</p>
-      </div>
-      <div class="text-center p-6 bg-[#191919] rounded-2xl shadow-md hover:shadow-[#D4AF37]/50 transition-shadow duration-300">
-        <div class="text-6xl mb-4">⚡</div>
-        <h3 class="text-2xl font-semibold mb-3 text-[#D4AF37]">Lightning Quotes</h3>
-        <p class="text-gray-400">Time is luxury. Receive up to 3 precise, competitive quotes in record time. We don’t keep you waiting.</p>
-      </div>
-      <div class="text-center p-6 bg-[#191919] rounded-2xl shadow-md hover:shadow-[#D4AF37]/50 transition-shadow duration-300">
-        <div class="text-6xl mb-4">💎</div>
-        <h3 class="text-2xl font-semibold mb-3 text-[#D4AF37]">Premium Experience</h3>
-        <p class="text-gray-400">From booking to completion, we deliver high-touch, high-quality service tailored for discerning clients.</p>
-      </div>
-    </div>
-  </section>
+  <script>
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
 
-  <!-- Trust Proof Section -->
-  <section class="py-24 px-6">
-    <h2 class="text-5xl font-bold text-center mb-10">Trusted by Thousands in Upington</h2>
-    <p class="text-center text-gray-300 max-w-4xl mx-auto text-lg">FixableUp is the go-to platform for luxury homeowners and local pros alike. Whether it's solar panel cleaning, plumbing, or renovations — we make it effortless and elite.</p>
-  </section>
+    document.getElementById('quoteForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData.entries());
 
-  <!-- Lead Form (CTA) -->
-  <section class="bg-[#1E1E1E] py-24 px-6 text-center">
-    <h2 class="text-4xl font-extrabold text-white mb-6">Get Started with FixableUp</h2>
-    <p class="text-gray-400 text-lg mb-10">Click below. Choose your service. Sit back. We'll connect you with excellence.</p>
-    <a href="client_register.html" class="bg-[#D4AF37] text-black px-12 py-5 rounded-full text-xl font-bold hover:bg-yellow-500 transition duration-300">Get Your Quotes Now</a>
-  </section>
+      try {
+        const res = await fetch('/api/submitClient', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
 
-  <!-- Footer -->
-  <footer class="bg-[#121212] py-8 text-center text-gray-500 text-sm">
-    &copy; 2025 FixableUp. All rights reserved.
-  </footer>
+        if (res.ok) {
+          alert('✅ Success! We will contact you soon.');
+          e.target.reset();
+        } else {
+          alert('❌ Something went wrong. Please try again.');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('❌ Network error. Please try again later.');
+      }
+    });
+  </script>
+
 </body>
 </html>
