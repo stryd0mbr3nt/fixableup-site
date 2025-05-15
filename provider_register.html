@@ -75,11 +75,27 @@
           <option value="Handyman">Handyman</option>
           <option value="Construction">Construction</option>
           <option value="Landscaping">Landscaping</option>
+          <option value="Automotive">Automotive</option>
           <option value="Other">Other</option>
         </select>
 
-        <input type="text" name="sub_services" placeholder="List Sub-Services (e.g., Solar Cleaning, Panel Install)" class="input" required />
-        <textarea name="details" rows="4" placeholder="Describe your experience or certificates" class="input"></textarea>
+        <input type="text" name="sub_services" placeholder="List Sub-Services (e.g., Solar Cleaning, Car Mechanic, Window Tinting)" class="input" required />
+        <textarea name="details" rows="4" placeholder="Describe your experience, certificates, or areas of specialty" class="input"></textarea>
+
+        <!-- New Future-Proof Fields -->
+        <input type="text" name="business_name" placeholder="Business or Company Name (Optional)" class="input" />
+
+        <select name="verification_status" class="input">
+          <option value="Unverified">Verification Status (Optional)</option>
+          <option value="Verified">Verified</option>
+          <option value="Unverified">Unverified</option>
+        </select>
+
+        <input type="text" name="rating" placeholder="Your Current Rating (e.g., 4.5/5)" class="input" />
+
+        <input type="text" name="provider_id" placeholder="Provider ID (for admin use)" class="input" />
+
+        <input type="text" name="payment_reference" placeholder="Payment Ref (EFT or PayGate Ref, optional)" class="input" />
 
         <button type="submit" class="w-full bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-semibold py-3 rounded-xl hover:from-yellow-500 hover:to-yellow-300 transition">Register Now</button>
       </form>
