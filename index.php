@@ -10,11 +10,7 @@
 </head>
 <body class="bg-[#121212] text-white font-sans">
  <!-- Navbar / Logo -->
-<header class="w-full py-4 flex justify-center bg-[#1E1E1E] shadow-xl">
-  <div class="w-[120px] h-[120px] flex items-center justify-center">
-   <img src="logo.png" alt="FixableUp Logo" class="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300 ring-2 ring-[#D4AF37] rounded-full">
-  </div>
-</header>
+<?php include 'nav.php'; ?>
 
   <!-- Hero Section -->
   <section class="text-center py-24 px-6">
