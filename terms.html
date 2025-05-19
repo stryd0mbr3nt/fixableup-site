@@ -1,72 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms and Conditions - FixableUp</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms & Conditions - FixableUp</title>
+  <meta name="description" content="FixableUp Terms and Conditions. Know your rights and responsibilities when using our platform." />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { background-color: #0F0F0F; color: #E5E5E5; }
     .luxury { color: #D4AF37; }
   </style>
 </head>
+<body class="min-h-screen flex flex-col">
 
-<nav class="flex justify-between items-center py-4 px-6 bg-[#1a1a1a] text-white">
-  <a href="/" class="text-2xl font-bold luxury">FixableUp</a>
-  <div class="space-x-6 text-sm md:text-base">
-    <a href="/" class="hover:text-yellow-400">Home</a>
-    <a href="/services.html" class="hover:text-yellow-400">Services</a>
-    <a href="/client_register.html" class="hover:text-yellow-400">Client Register</a>
-    <a href="/provider_register.html" class="hover:text-yellow-400">Provider Register</a>
-    <a href="/contact.html" class="hover:text-yellow-400">Contact</a>
+  <!-- Header -->
+  <header class="flex items-center justify-between p-4 bg-black bg-opacity-80">
+    <a href="index.html" class="flex items-center space-x-2">
+      <img src="logo.png" alt="FixableUp Logo" width="48" height="48" class="w-12 hover:scale-110 transition" />
+      <span class="luxury text-xl font-bold hidden sm:inline">FixableUp</span>
+    </a>
+
+    <button id="menuToggle" class="text-3xl text-gray-300 md:hidden">&#9776;</button>
+
+    <nav id="menu" class="hidden md:flex space-x-6 text-gray-300 font-semibold">
+      <a href="index.html" class="hover:text-white">Home</a>
+      <a href="client_register.html" class="hover:text-white">Get Quotes</a>
+      <a href="provider_register.html" class="hover:text-white">Join as Provider</a>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden flex flex-col bg-black bg-opacity-90 text-gray-300 p-4 space-y-4">
+    <a href="index.html" class="hover:text-white">Home</a>
+    <a href="client_register.html" class="hover:text-white">Get Quotes</a>
+    <a href="provider_register.html" class="hover:text-white">Join as Provider</a>
   </div>
-</nav>
-  
-<body class="min-h-screen p-8">
-  <div class="max-w-4xl mx-auto">
-    <h1 class="text-4xl font-bold luxury mb-6">Terms and Conditions</h1>
 
-    <p class="mb-4">Welcome to FixableUp. These terms and conditions outline the rules and regulations for the use of FixableUp’s services and website.</p>
+  <!-- Main Content -->
+  <main class="flex-grow flex items-center justify-center p-6">
+    <div class="max-w-3xl w-full bg-black bg-opacity-70 p-8 rounded-2xl shadow-2xl">
+      <h1 class="text-3xl font-bold luxury mb-6 text-center">Terms & Conditions</h1>
 
-    <h2 class="text-2xl font-semibold mt-6 mb-2">1. Acceptance of Terms</h2>
-    <p class="mb-4">By accessing this website or registering as a client or provider, you agree to comply with and be bound by these Terms and Conditions. If you disagree with any part, you must not use our platform.</p>
+      <p class="mb-4">By using FixableUp, you agree to the following terms. This is your contract with us—clear, fair, no fluff.</p>
 
-    <h2 class="text-2xl font-semibold mt-6 mb-2">2. Service Scope</h2>
-    <p class="mb-4">FixableUp is a lead generation platform connecting clients with service providers in Upington. We do not employ or endorse any provider listed on the platform. We facilitate communication and lead generation only.</p>
+      <h2 class="text-xl font-semibold luxury mb-2">1. Using the Platform</h2>
+      <p class="mb-4">You must use the platform legally, respectfully, and without trying to hack, scam, or abuse others. We reserve the right to block access if you break the rules.</p>
 
-    <h2 class="text-2xl font-semibold mt-6 mb-2">3. Provider Responsibilities</h2>
-    <p class="mb-4">Service providers must ensure the accuracy of the information they submit and are solely responsible for the quality and delivery of their services. Misrepresentation may lead to removal from the platform without refund.</p>
+      <h2 class="text-xl font-semibold luxury mb-2">2. Quotes & Jobs</h2>
+      <p class="mb-4">We connect clients and service providers. We are not a party to the job agreement. Payments, guarantees, and work quality are your responsibility unless explicitly stated otherwise.</p>
 
-    <h2 class="text-2xl font-semibold mt-6 mb-2">4. Lead Distribution</h2>
-    <p class="mb-4">Leads are distributed based on service category, location, and verification status. Verified providers may receive leads at no cost for a limited period. Continued access to leads may require payment.</p>
+      <h2 class="text-xl font-semibold luxury mb-2">3. Payments</h2>
+      <p class="mb-4">Some services require payment (like provider sign-up or premium leads). All payments are processed securely via PayGate or Yoco. No refunds unless otherwise agreed in writing.</p>
 
-    <h2 class="text-2xl font-semibold mt-6 mb-2">5. Payments</h2>
-    <p class="mb-4">Providers may be required to pay for leads or verification. Payments must be made to the following bank account:</p>
-    <ul class="mb-4 list-disc list-inside">
-      <li>Account Name: FixableUp</li>
-      <li>Bank: TymeBank</li>
-      <li>Account Number: 53000710321</li>
-      <li>Branch Code / Universal Code: 67890</li>
-    </ul>
+      <h2 class="text-xl font-semibold luxury mb-2">4. Provider Conduct</h2>
+      <p class="mb-4">Service providers must be honest, legal, and deliver what they promise. Fake reviews, false information, or unethical behavior will result in a ban and possible legal action.</p>
 
-    <h2 class="text-2xl font-semibold mt-6 mb-2">6. Refunds</h2>
-    <p class="mb-4">All payments made are final. FixableUp does not guarantee refunds unless explicitly agreed upon in writing. Disputes will be handled on a case-by-case basis.</p>
+      <h2 class="text-xl font-semibold luxury mb-2">5. Data & Privacy</h2>
+      <p class="mb-4">We collect only the data needed to make the platform work. For full info, see our <a href="privacy.html" class="text-yellow-400">Privacy Policy</a>.</p>
 
-    <h2 class="text-2xl font-semibold mt-6 mb-2">7. Privacy</h2>
-    <p class="mb-4">We respect your privacy. Information collected through the registration forms is used solely for matching clients with suitable providers. We do not sell or share your data with third parties. Read our full Privacy Policy for details.</p>
+      <h2 class="text-xl font-semibold luxury mb-2">6. Limitation of Liability</h2>
+      <p class="mb-4">FixableUp is not responsible for damages resulting from bad jobs, missed connections, or misunderstandings between users. Use at your own risk. We just make the match.</p>
 
-    <h2 class="text-2xl font-semibold mt-6 mb-2">8. Modifications</h2>
-    <p class="mb-4">FixableUp may revise these terms at any time without notice. By continuing to use the platform, you agree to the updated terms.</p>
+      <h2 class="text-xl font-semibold luxury mb-2">7. Changes</h2>
+      <p class="mb-4">These terms may change. Continued use means you agree to the latest version. We'll notify users of major updates via email or announcements on the site.</p>
 
-    <h2 class="text-2xl font-semibold mt-6 mb-2">9. Contact</h2>
-    <p class="mb-4">For questions or support, contact us at:</p>
-    <ul class="mb-4 list-disc list-inside">
-      <li>Email: info@fixableup.online</li>
-      <li>Phone: 060 508 9504</li>
-      <li>Address: 50 Diamant Street, Upington</li>
-    </ul>
+      <p class="mt-8 text-center text-sm text-gray-400">Effective: 19 May 2025</p>
+    </div>
+  </main>
 
-    <p class="mt-8 text-sm text-gray-400">Effective as of May 2025</p>
-  </div>
+  <script>
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+  </script>
+
 </body>
 </html>
