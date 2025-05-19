@@ -4,110 +4,76 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact FixableUp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f7f8;
-      margin: 0;
-      padding: 0;
-      color: #333;
+      background-color: #0F0F0F;
+      color: #E5E5E5;
     }
-    .container {
-      max-width: 600px;
-      margin: 50px auto;
-      background: #fff;
-      padding: 30px 40px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
-    h1 {
-      margin-bottom: 20px;
-      color: #0078D7;
-    }
-    label {
-      display: block;
-      margin: 15px 0 6px;
-      font-weight: 600;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-      resize: vertical;
-      transition: border-color 0.3s ease;
-    }
-    input:focus, textarea:focus {
-      border-color: #0078D7;
-      outline: none;
-    }
-    button {
-      margin-top: 20px;
-      padding: 14px 0;
-      width: 100%;
-      background: #0078D7;
-      border: none;
-      border-radius: 4px;
-      color: white;
-      font-size: 1.1rem;
-      cursor: pointer;
-      font-weight: 700;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background: #005fa3;
-    }
-    .contact-info {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #555;
-      border-top: 1px solid #eee;
-      padding-top: 20px;
-    }
-    .contact-info p {
-      margin: 6px 0;
-    }
-    a {
-      color: #0078D7;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+    .luxury {
+      color: #D4AF37;
     }
   </style>
 </head>
-<body>
-  <div class="container">
-    <h1>Contact FixableUp</h1>
-    <form id="contactForm" action="submit_contact.php" method="POST" novalidate>
-      <label for="name">Full Name *</label>
-      <input type="text" id="name" name="name" required placeholder="Your full name" />
+<body class="min-h-screen p-6">
+  <div class="max-w-3xl mx-auto">
+    <!-- Navigation -->
+    <nav class="mb-10 flex justify-between items-center text-sm text-gray-300">
+      <a href="/" class="font-bold text-lg luxury">FixableUp</a>
+      <div class="space-x-4">
+        <a href="/terms.html" class="hover:text-white">Terms</a>
+        <a href="/privacy.html" class="hover:text-white">Privacy</a>
+        <a href="/contact.html" class="hover:text-white underline">Contact</a>
+      </div>
+    </nav>
 
-      <label for="email">Email Address *</label>
-      <input type="email" id="email" name="email" required placeholder="you@example.com" />
+    <!-- Contact Header -->
+    <h1 class="text-4xl font-bold luxury mb-6">Contact Us</h1>
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" placeholder="+27 60 508 9504" />
+    <!-- Contact Form -->
+    <form id="contactForm" action="submit_contact.php" method="POST" class="space-y-6 bg-gray-900 p-6 rounded-2xl shadow-lg">
+      <div>
+        <label for="name" class="block mb-2 font-semibold text-sm">Full Name *</label>
+        <input type="text" id="name" name="name" required placeholder="Your full name"
+               class="w-full bg-gray-800 text-white border border-gray-700 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+      </div>
 
-      <label for="message">Your Message *</label>
-      <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
+      <div>
+        <label for="email" class="block mb-2 font-semibold text-sm">Email Address *</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com"
+               class="w-full bg-gray-800 text-white border border-gray-700 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+      </div>
 
-      <button type="submit">Send Message</button>
+      <div>
+        <label for="phone" class="block mb-2 font-semibold text-sm">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="+27 60 508 9504"
+               class="w-full bg-gray-800 text-white border border-gray-700 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+      </div>
+
+      <div>
+        <label for="message" class="block mb-2 font-semibold text-sm">Your Message *</label>
+        <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"
+                  class="w-full bg-gray-800 text-white border border-gray-700 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+      </div>
+
+      <button type="submit"
+              class="w-full bg-yellow-600 hover:bg-yellow-500 text-black font-bold py-3 rounded-md transition">
+        Send Message
+      </button>
     </form>
 
-    <div class="contact-info">
-      <p><strong>Phone:</strong> <a href="tel:+27605089504">060 508 9504</a></p>
-      <p><strong>Email:</strong> <a href="mailto:info@fixableup.online">info@fixableup.online</a></p>
+    <!-- Contact Info -->
+    <div class="mt-10 text-sm text-gray-400">
+      <p><strong>Phone:</strong> <a href="tel:+27605089504" class="text-yellow-500 hover:underline">060 508 9504</a></p>
+      <p><strong>Email:</strong> <a href="mailto:info@fixableup.online" class="text-yellow-500 hover:underline">info@fixableup.online</a></p>
       <p><strong>Address:</strong> 50 Diamant Street, Upington</p>
     </div>
   </div>
 
   <script>
-    // Simple form validation feedback
     const form = document.getElementById('contactForm');
     form.addEventListener('submit', e => {
-      if(!form.checkValidity()) {
+      if (!form.checkValidity()) {
         e.preventDefault();
         alert('Please fill in all required fields correctly.');
       }
