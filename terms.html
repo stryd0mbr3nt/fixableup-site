@@ -3,76 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms & Conditions - FixableUp</title>
-  <meta name="description" content="FixableUp Terms and Conditions. Know your rights and responsibilities when using our platform." />
+  <title>Terms and Conditions - FixableUp</title>
+  <meta name="description" content="Terms and Conditions for FixableUp services." />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { background-color: #0F0F0F; color: #E5E5E5; }
     .luxury { color: #D4AF37; }
+    a { color: #D4AF37; }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-  <!-- Header -->
   <header class="flex items-center justify-between p-4 bg-black bg-opacity-80">
     <a href="index.html" class="flex items-center space-x-2">
       <img src="logo.png" alt="FixableUp Logo" width="48" height="48" class="w-12 hover:scale-110 transition" />
       <span class="luxury text-xl font-bold hidden sm:inline">FixableUp</span>
     </a>
-
-    <button id="menuToggle" class="text-3xl text-gray-300 md:hidden">&#9776;</button>
-
-    <nav id="menu" class="hidden md:flex space-x-6 text-gray-300 font-semibold">
+    <nav class="hidden md:flex space-x-6 text-gray-300 font-semibold">
       <a href="index.html" class="hover:text-white">Home</a>
       <a href="client_register.html" class="hover:text-white">Get Quotes</a>
       <a href="provider_register.html" class="hover:text-white">Join as Provider</a>
+      <a href="contact.html" class="hover:text-white">Contact</a>
     </nav>
   </header>
 
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="hidden flex flex-col bg-black bg-opacity-90 text-gray-300 p-4 space-y-4">
-    <a href="index.html" class="hover:text-white">Home</a>
-    <a href="client_register.html" class="hover:text-white">Get Quotes</a>
-    <a href="provider_register.html" class="hover:text-white">Join as Provider</a>
-  </div>
+  <main class="flex-grow flex items-start justify-center p-6">
+    <div class="max-w-3xl w-full bg-black bg-opacity-80 p-8 rounded-2xl shadow-2xl">
+      <h1 class="text-3xl font-bold luxury mb-6 text-center">Terms and Conditions</h1>
 
-  <!-- Main Content -->
-  <main class="flex-grow flex items-center justify-center p-6">
-    <div class="max-w-3xl w-full bg-black bg-opacity-70 p-8 rounded-2xl shadow-2xl">
-      <h1 class="text-3xl font-bold luxury mb-6 text-center">Terms & Conditions</h1>
+      <p class="mb-4">Welcome to FixableUp. By using our platform, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.</p>
 
-      <p class="mb-4">By using FixableUp, you agree to the following terms. This is your contract with us—clear, fair, no fluff.</p>
+      <h2 class="text-2xl font-semibold mt-6 mb-2">1. Use of Services</h2>
+      <p class="mb-4">Our platform connects clients with service providers. We do not directly provide any services listed and are not responsible for any agreements made between users.</p>
 
-      <h2 class="text-xl font-semibold luxury mb-2">1. Using the Platform</h2>
-      <p class="mb-4">You must use the platform legally, respectfully, and without trying to hack, scam, or abuse others. We reserve the right to block access if you break the rules.</p>
+      <h2 class="text-2xl font-semibold mt-6 mb-2">2. User Responsibilities</h2>
+      <p class="mb-4">Users must provide accurate information during registration. Misuse of the platform or providing false information will result in suspension or termination of your account.</p>
 
-      <h2 class="text-xl font-semibold luxury mb-2">2. Quotes & Jobs</h2>
-      <p class="mb-4">We connect clients and service providers. We are not a party to the job agreement. Payments, guarantees, and work quality are your responsibility unless explicitly stated otherwise.</p>
+      <h2 class="text-2xl font-semibold mt-6 mb-2">3. Payment and Fees</h2>
+      <p class="mb-4">FixableUp may charge service providers for access to leads. All payments are processed securely. We do not store payment information.</p>
 
-      <h2 class="text-xl font-semibold luxury mb-2">3. Payments</h2>
-      <p class="mb-4">Some services require payment (like provider sign-up or premium leads). All payments are processed securely via PayGate or Yoco. No refunds unless otherwise agreed in writing.</p>
+      <h2 class="text-2xl font-semibold mt-6 mb-2">4. Privacy</h2>
+      <p class="mb-4">We value your privacy. Your data will only be used for the purpose of providing and improving our services. See our <a href="#">Privacy Policy</a> for more details.</p>
 
-      <h2 class="text-xl font-semibold luxury mb-2">4. Provider Conduct</h2>
-      <p class="mb-4">Service providers must be honest, legal, and deliver what they promise. Fake reviews, false information, or unethical behavior will result in a ban and possible legal action.</p>
+      <h2 class="text-2xl font-semibold mt-6 mb-2">5. Termination</h2>
+      <p class="mb-4">We reserve the right to terminate access to any user who violates these terms, without prior notice.</p>
 
-      <h2 class="text-xl font-semibold luxury mb-2">5. Data & Privacy</h2>
-      <p class="mb-4">We collect only the data needed to make the platform work. For full info, see our <a href="privacy.html" class="text-yellow-400">Privacy Policy</a>.</p>
+      <h2 class="text-2xl font-semibold mt-6 mb-2">6. Changes to Terms</h2>
+      <p class="mb-4">We may update these terms at any time. Continued use of the platform implies acceptance of the updated terms.</p>
 
-      <h2 class="text-xl font-semibold luxury mb-2">6. Limitation of Liability</h2>
-      <p class="mb-4">FixableUp is not responsible for damages resulting from bad jobs, missed connections, or misunderstandings between users. Use at your own risk. We just make the match.</p>
-
-      <h2 class="text-xl font-semibold luxury mb-2">7. Changes</h2>
-      <p class="mb-4">These terms may change. Continued use means you agree to the latest version. We'll notify users of major updates via email or announcements on the site.</p>
-
-      <p class="mt-8 text-center text-sm text-gray-400">Effective: 19 May 2025</p>
+      <p class="mt-6 text-sm text-gray-400">Last updated: May 2025</p>
     </div>
   </main>
-
-  <script>
-    document.getElementById('menuToggle').addEventListener('click', () => {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
-    });
-  </script>
-
 </body>
 </html>
