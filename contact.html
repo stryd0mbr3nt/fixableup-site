@@ -17,15 +17,38 @@
 </head>
 <body class="min-h-screen p-6">
   <div class="max-w-3xl mx-auto">
-    <!-- Navigation -->
-    <nav class="mb-10 flex justify-between items-center text-sm text-gray-300">
-      <a href="/" class="font-bold text-lg luxury">FixableUp</a>
-      <div class="space-x-4">
-        <a href="/terms.html" class="hover:text-white">Terms</a>
-        <a href="/privacy.html" class="hover:text-white">Privacy</a>
-        <a href="/contact.html" class="hover:text-white underline">Contact</a>
-      </div>
-    </nav>
+    <!-- Navbar / Logo -->
+<header class="flex items-center justify-between p-4 bg-black bg-opacity-80">
+  <a href="index.html" class="flex items-center space-x-2">
+    <img src="logo.png" alt="FixableUp Logo" width="120" height="120" class="w-12 hover:scale-110 transition" />
+    <span class="luxury text-xl font-bold hidden sm:inline">FixableUp</span>
+  </a>
+
+  <button id="menuToggle" class="text-3xl text-gray-300 md:hidden">&#9776;</button>
+
+  <nav id="menu" class="hidden md:flex space-x-6 text-gray-300 font-semibold">
+    <a href="index.html" class="hover:text-white">Home</a>
+    <a href="client_register.html" class="hover:text-white">Get Quotes</a>
+    <a href="provider_register.html" class="hover:text-white">Join as Provider</a>
+    <a href="contact.html" class="hover:text-white">Contact</a>
+    <a href="terms.html" class="hover:text-white">Terms & Conditions</a>
+  </nav>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="hidden flex flex-col bg-black bg-opacity-90 text-gray-300 p-4 space-y-4">
+  <a href="index.html" class="hover:text-white">Home</a>
+  <a href="client_register.html" class="hover:text-white">Get Quotes</a>
+  <a href="provider_register.html" class="hover:text-white">Join as Provider</a>
+  <a href="contact.html" class="hover:text-white">Contact</a>
+  <a href="terms.html" class="hover:text-white">Terms & Conditions</a>
+</div>
+
+<script>
+  document.getElementById('menuToggle').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+  });
+</script>
 
     <!-- Contact Header -->
     <h1 class="text-4xl font-bold luxury mb-6">Contact Us</h1>
