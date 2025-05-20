@@ -1,65 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FixableUp Dashboard</title>
+  <meta charset="UTF-8">
+  <title>Dashboard - FixableUp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background-color: #0F0F0F;
-      color: #E5E5E5;
-    }
-    .luxury {
-      color: #D4AF37;
-    }
-  </style>
 </head>
-<body class="flex min-h-screen">
+<body class="bg-[#121212] text-white min-h-screen font-sans">
+  <!-- Header -->
+  <header class="flex justify-between items-center p-4 bg-black bg-opacity-80">
+    <a href="index.html" class="flex items-center space-x-2">
+      <img src="logo.png" alt="FixableUp Logo" width="48" height="48" class="hover:scale-110 transition" />
+      <span class="text-xl font-bold hidden sm:inline">FixableUp</span>
+    </a>
+    <button onclick="logout()" class="bg-red-600 px-4 py-2 rounded text-sm font-semibold hover:bg-red-700">Logout</button>
+  </header>
 
-  <!-- Sidebar -->
-  <aside class="w-64 bg-gray-900 p-6 flex flex-col space-y-6">
-    <div class="flex items-center space-x-3">
-      <img src="logo.png" alt="FixableUp Logo" class="w-10" />
-      <h1 class="text-xl font-bold luxury">FixableUp</h1>
+  <!-- Dashboard Content -->
+  <main class="p-8">
+    <h1 class="text-4xl font-bold text-[#D4AF37] mb-6">Welcome, <span id="username">User</span>!</h1>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="p-6 bg-[#1E1E1E] rounded-xl shadow-lg">
+        <h2 class="text-2xl font-semibold mb-3">Your Details</h2>
+        <ul id="userDetails" class="space-y-1 text-gray-300">
+          <!-- JavaScript will fill this -->
+        </ul>
+      </div>
+      <div class="p-6 bg-[#1E1E1E] rounded-xl shadow-lg">
+        <h2 class="text-2xl font-semibold mb-3">Your Quotes / Leads</h2>
+        <p class="text-gray-400">Coming soon...</p>
+      </div>
     </div>
-    <nav class="flex flex-col space-y-4 mt-10 text-sm text-gray-400">
-      <a href="#" class="hover:text-white">Dashboard Home</a>
-      <a href="#" class="hover:text-white">My Leads</a>
-      <a href="#" class="hover:text-white">Messages</a>
-      <a href="#" class="hover:text-white">Profile</a>
-      <a href="#" class="hover:text-white">Settings</a>
-    </nav>
-  </aside>
-
-  <!-- Main Content -->
-  <main class="flex-1 p-8 bg-gray-950">
-    <header class="flex justify-between items-center mb-8">
-      <h2 class="text-3xl font-bold luxury">Dashboard</h2>
-      <a href="index.html" class="text-sm text-gray-400 hover:text-red-500">Logout</a>
-    </header>
-
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-      <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-2">New Leads</h3>
-        <p class="text-gray-400">You have <span class="text-yellow-400 font-bold">0</span> new leads.</p>
-      </div>
-      <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-2">Messages</h3>
-        <p class="text-gray-400">You have <span class="text-yellow-400 font-bold">0</span> unread messages.</p>
-      </div>
-      <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-2">Profile Status</h3>
-        <p class="text-gray-400">Your profile is <span class="text-green-400 font-bold">verified</span>.</p>
-      </div>
-    </section>
-
-    <section>
-      <h3 class="text-2xl font-bold luxury mb-4">Activity Overview</h3>
-      <div class="bg-gray-800 p-6 rounded-xl text-gray-400">
-        <p>This area will soon show your lead statistics, performance, and insights.</p>
-      </div>
-    </section>
   </main>
+
+  <script>
+    // Simple auth check
+    const userType = localStorage.getItem("userType");
+    const userData = JSON.parse(localStorage.getItem(userType === "provider" ? "provider" : "client"));
+
+    if (!userData || !userType) {
+      window.location.href = "index.html";
+    } else {
+      document.getElementById("username").innerText = userData.name || userData.businessName || "FixableUp User";
+
+      const details = document.getElementById("userDetails");
+      for (let key in userData) {
+        const li = document.createElement("li");
+        li.innerText = `${key}: ${userData[key]}`;
+        details.appendChild(li);
+      }
+    }
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = "index.html";
+    }
+  </script>
 </body>
 </html>
