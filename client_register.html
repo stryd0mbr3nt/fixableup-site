@@ -29,41 +29,39 @@
 <body class="min-h-screen flex flex-col">
 
   <!-- Navbar / Logo -->
-<header class="flex items-center justify-between p-4 bg-black bg-opacity-80">
-  <a href="index.html" class="flex items-center space-x-2">
-    <img src="logo.png" alt="FixableUp Logo" width="120" height="120" class="w-12 hover:scale-110 transition" />
-    <span class="luxury text-xl font-bold hidden sm:inline">FixableUp</span>
-  </a>
+  <header class="flex items-center justify-between p-4 bg-black bg-opacity-80">
+    <a href="index.html" class="flex items-center space-x-2">
+      <img src="logo.png" alt="FixableUp Logo" width="120" height="120" class="w-12 hover:scale-110 transition" />
+      <span class="luxury text-xl font-bold hidden sm:inline">FixableUp</span>
+    </a>
+    <button id="menuToggle" class="text-3xl text-gray-300 md:hidden">&#9776;</button>
+    <nav id="menu" class="hidden md:flex space-x-6 text-gray-300 font-semibold">
+      <a href="index.html" class="hover:text-white underline">Home</a>
+      <a href="client_register.html" class="hover:text-white underline">Get Quotes</a>
+      <a href="provider_register.html" class="hover:text-white underline">Join as Provider</a>
+      <a href="contact.html" class="hover:text-white underline">Contact</a>
+      <a href="terms.html" class="hover:text-white underline">Terms & Conditions</a>
+      <a href="/privacy.html" class="hover:text-white underline">Privacy</a>
+    </nav>
+  </header>
 
-  <button id="menuToggle" class="text-3xl text-gray-300 md:hidden">&#9776;</button>
-
-  <nav id="menu" class="hidden md:flex space-x-6 text-gray-300 font-semibold">
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden flex flex-col bg-black bg-opacity-90 text-gray-300 p-4 space-y-4">
     <a href="index.html" class="hover:text-white underline">Home</a>
     <a href="client_register.html" class="hover:text-white underline">Get Quotes</a>
     <a href="provider_register.html" class="hover:text-white underline">Join as Provider</a>
     <a href="contact.html" class="hover:text-white underline">Contact</a>
     <a href="terms.html" class="hover:text-white underline">Terms & Conditions</a>
     <a href="/privacy.html" class="hover:text-white underline">Privacy</a>
-  </nav>
-</header>
+  </div>
 
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="hidden flex flex-col bg-black bg-opacity-90 text-gray-300 p-4 space-y-4">
-  <a href="index.html" class="hover:text-white underline">Home</a>
-  <a href="client_register.html" class="hover:text-white underline">Get Quotes</a>
-  <a href="provider_register.html" class="hover:text-white underline">Join as Provider</a>
-  <a href="contact.html" class="hover:text-white underline">Contact</a>
-  <a href="terms.html" class="hover:text-white underline">Terms & Conditions</a>
-  <a href="/privacy.html" class="hover:text-white underline">Privacy</a>
-</div>
+  <script>
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+  </script>
 
-<script>
-  document.getElementById('menuToggle').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.toggle('hidden');
-  });
-</script>
-
-  <!-- Form -->
+  <!-- Form Section -->
   <main class="flex-grow flex items-center justify-center p-6">
     <div class="max-w-md w-full bg-black bg-opacity-70 p-8 rounded-2xl shadow-2xl">
       <img src="logo.png" alt="FixableUp Logo" width="96" height="96" class="mx-auto mb-4 hover:scale-110 transition cursor-pointer" onclick="window.location.href='index.html'" />
@@ -74,10 +72,8 @@
         <input type="text" name="name" placeholder="Your Full Name" class="input" required autocomplete="name" />
         <input type="email" name="email" placeholder="Your Email Address" class="input" required autocomplete="email" />
         <input type="text" name="location" placeholder="Your Location (e.g., Upington)" class="input" required autocomplete="address-level2" />
-
         <select name="service" class="input" required>
           <option value="">Select Service Needed</option>
-
           <optgroup label="Home Services">
             <option value="plumber">Plumber</option>
             <option value="electrician">Electrician</option>
@@ -86,35 +82,28 @@
             <option value="painter">Painter</option>
             <option value="tiler">Tiler</option>
           </optgroup>
-
           <optgroup label="Cleaning Services">
             <option value="home_cleaning">Home Cleaning</option>
             <option value="carpet_cleaning">Carpet Cleaning</option>
             <option value="window_cleaning">Window Cleaning</option>
           </optgroup>
-
           <optgroup label="Installations">
             <option value="aircon">Aircon Installation</option>
             <option value="security">Security System Install</option>
             <option value="solar_install">Solar Panel Install</option>
           </optgroup>
-
           <optgroup label="Automotive Services">
             <option value="car_mechanic">Car Mechanic</option>
             <option value="window_tinting">Window Tinting</option>
           </optgroup>
-
           <optgroup label="Outdoor">
             <option value="gardening">Gardening</option>
             <option value="paving">Paving</option>
             <option value="pool">Pool Repairs</option>
           </optgroup>
-
           <option value="other">Other</option>
         </select>
-
         <textarea name="details" rows="4" placeholder="Describe your job (optional)" class="input"></textarea>
-
         <button type="submit" class="w-full bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-semibold py-3 rounded-xl hover:from-yellow-500 hover:to-yellow-300 transition">Get My 3 Quotes Now</button>
       </form>
 
@@ -122,11 +111,32 @@
     </div>
   </main>
 
-  <script>
-    document.getElementById('menuToggle').addEventListener('click', () => {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
-    });
+  <!-- Service Descriptions & Quote Info -->
+  <section class="bg-black bg-opacity-80 text-gray-300 py-10 px-6">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+      <h2 class="text-2xl font-bold luxury">How FixableUp Works</h2>
+      <p>Tell us what service you need, and we’ll match you with up to three trusted providers near Upington.</p>
+      <p>Each quote is obligation-free. We recommend comparing all three before deciding.</p>
 
+      <h3 class="text-xl font-semibold mt-6">What’s Included?</h3>
+      <ul class="list-disc list-inside text-left max-w-xl mx-auto">
+        <li>Free and fast request submission</li>
+        <li>Direct contact from verified providers</li>
+        <li>Transparent pricing—no hidden fees</li>
+        <li>Local support if you need help</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer with Contact Info -->
+  <footer class="bg-black bg-opacity-90 text-gray-400 text-sm text-center p-6 mt-10">
+    <p>&copy; 2025 FixableUp. All rights reserved.</p>
+    <p>Business Name: <strong>FixableUp</strong> | Support: <a href="mailto:info@fixableup.online" class="underline hover:text-white">info@fixableup.online</a> | Phone: <a href="tel:+27605089504" class="underline hover:text-white">060 508 9504</a></p>
+    <p><a href="terms.html" class="underline hover:text-white">Terms & Conditions</a> | <a href="privacy.html" class="underline hover:text-white">Privacy Policy</a> | <a href="contact.html" class="underline hover:text-white">Contact Us</a></p>
+    <p class="mt-2">Physical Address: 50 Diamant Street, Upington, Northern Cape, South Africa</p>
+  </footer>
+
+  <script>
     document.getElementById('quoteForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const formData = new FormData(e.target);
