@@ -1,35 +1,39 @@
 <?php
 // === Config ===
 $adminEmail = "no-reply@fixableup.online";
-$csvFile = "providers.csv";
+$csvFile    = "providers.csv";
 
-// === Get POST Data ===
-$name         = $_POST['name'] ?? '';
-$email        = $_POST['email'] ?? '';
-$phone        = $_POST['phone'] ?? '';
-$location     = $_POST['location'] ?? '';
-$service      = $_POST['service'] ?? '';
-$sub_services = $_POST['sub_services'] ?? '';
-$details      = $_POST['details'] ?? '';
-$date         = date('Y-m-d H:i:s');
-$verified     = 'No';  // All new providers start unverified
-
-// === Clean Function ===
-function clean($value) {
-    $value = str_replace(["\r", "\n"], ' ', $value);
-    return '"' . addslashes(trim($value)) . '"';
+// === Get and sanitize POST data ===
+function get_input($key) {
+    return htmlspecialchars(trim($_POST[$key] ?? ''));
 }
 
-// === Save to CSV ===
+$name         = get_input('name');
+$email        = get_input('email');
+$phone        = get_input('phone');
+$location     = get_input('location');
+$service      = get_input('service');
+$sub_services = get_input('sub_services');
+$details      = get_input('details');
+$date         = date('Y-m-d H:i:s');
+$verified     = 'No';
+
+// === Escape CSV-friendly ===
+function clean($value) {
+    return '"' . addslashes(trim(str_replace(["\r", "\n"], ' ', $value))) . '"';
+}
+
+// === Write header if file is new ===
 if (!file_exists($csvFile)) {
     $header = ['Name', 'Email', 'Phone', 'Location', 'Service', 'Sub Services', 'Details', 'Date', 'Verified'];
     file_put_contents($csvFile, implode(',', $header) . "\n");
 }
 
+// === Save data to CSV ===
 $data = [$name, $email, $phone, $location, $service, $sub_services, $details, $date, $verified];
 file_put_contents($csvFile, implode(',', array_map('clean', $data)) . "\n", FILE_APPEND);
 
-// === Emails ===
+// === Email Content ===
 $subject = "New Provider Registration - $name";
 
 $adminMessage = <<<EOT
@@ -54,14 +58,15 @@ Thank you for registering as a provider on FixableUp.
 
 Our team will review your details and verify your account shortly. Once verified, you'll start receiving client leads directly.
 
-Regards,
+Regards,  
 FixableUp Team
 EOT;
 
+// === Send Emails ===
 mail($adminEmail, $subject, $adminMessage);
 mail($email, "Welcome to FixableUp", $providerMessage);
 
-// === Redirect ===
+// === Redirect to thank you ===
 header("Location: thank_you.html");
 exit();
 ?>
