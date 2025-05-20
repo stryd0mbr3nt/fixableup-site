@@ -19,24 +19,24 @@
   <div class="max-w-3xl mx-auto">
     <!-- Navigation -->
     <nav class="mb-10 flex justify-between items-center text-sm text-gray-300">
-       <img src="logo.png" alt="FixableUp Logo" width="90" height="120" class="w-12 hover:scale-300 transition" />
+      <img src="logo.png" alt="FixableUp Logo" width="90" height="120" class="w-12 hover:scale-300 transition" />
       <a href="/" class="font-bold text-lg luxury">FixableUp</a>
-     
       <div class="space-x-4">
-        <a href="index.html" class="hover:text-white ">Home</a>
+        <a href="index.html" class="hover:text-white">Home</a>
         <a href="client_register.html" class="hover:text-white">Get Quotes</a>
         <a href="provider_register.html" class="hover:text-white">Join as Provider</a>
-        <a href="contact.html" class="hover:text-white">Contact</a>
+        <a href="contact.html" class="text-white font-semibold">Contact</a>
         <a href="terms.html" class="hover:text-white">Terms & Conditions</a>
-        <a href="/privacy.html" class="hover:text-white">Privacy</a>
+        <a href="privacy.html" class="hover:text-white">Privacy</a>
       </div>
     </nav>
 
-    <!-- Contact Header -->
+    <!-- Page Title -->
     <h1 class="text-4xl font-bold luxury mb-6">Contact Us</h1>
+    <p class="mb-8 text-gray-400">Have a question, feedback, or need assistance? Reach out and our team will respond as soon as possible.</p>
 
     <!-- Contact Form -->
-    <form id="contactForm" action="submit_contact.php" method="POST" class="space-y-6 bg-gray-900 p-6 rounded-2xl shadow-lg">
+    <form id="contactForm" action="submit_contact.php" method="POST" class="space-y-6 bg-gray-900 p-6 rounded-2xl shadow-xl">
       <div>
         <label for="name" class="block mb-2 font-semibold text-sm">Full Name *</label>
         <input type="text" id="name" name="name" required placeholder="Your full name"
@@ -67,11 +67,15 @@
       </button>
     </form>
 
-    <!-- Contact Info -->
-    <div class="mt-10 text-sm text-gray-400">
-      <p><strong>Phone:</strong> <a href="tel:+27605089504" class="text-yellow-500 hover:underline">060 508 9504</a></p>
-      <p><strong>Email:</strong> <a href="mailto:info@fixableup.online" class="text-yellow-500 hover:underline">info@fixableup.online</a></p>
-      <p><strong>Address:</strong> 50 Diamant Street, Upington</p>
+    <!-- Business Contact Info -->
+    <div class="mt-10 text-sm text-gray-400 bg-gray-800 p-6 rounded-xl shadow-lg">
+      <h2 class="text-lg font-semibold text-white mb-4">Business Information</h2>
+      <p><strong class="text-white">Business Name:</strong> FixableUp</p>
+      <p><strong class="text-white">Owner:</strong> Brent Strydom</p>
+      <p><strong class="text-white">Reg No:</strong> Not registered yet</p>
+      <p><strong class="text-white">Address:</strong> 50 Diamant Street, Upington</p>
+      <p><strong class="text-white">Support Phone:</strong> <a href="tel:+27605089504" class="text-yellow-500 hover:underline">060 508 9504</a></p>
+      <p><strong class="text-white">Support Email:</strong> <a href="mailto:info@fixableup.online" class="text-yellow-500 hover:underline">info@fixableup.online</a></p>
     </div>
   </div>
 
