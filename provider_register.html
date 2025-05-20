@@ -1,4 +1,3 @@
-<!-- provider_register.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,92 +24,78 @@
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
-  
 
-  <!-- Navbar / Logo -->
-<header class="flex items-center justify-between p-4 bg-black bg-opacity-80">
-  <a href="index.html" class="flex items-center space-x-2">
-    <img src="logo.png" alt="FixableUp Logo" width="120" height="120" class="w-12 hover:scale-110 transition" />
-    <span class="luxury text-xl font-bold hidden sm:inline">FixableUp</span>
-  </a>
+  <!-- Navbar -->
+  <header class="flex items-center justify-between p-4 bg-black bg-opacity-80">
+    <a href="index.html" class="flex items-center space-x-2">
+      <img src="logo.png" alt="FixableUp Logo" class="w-12 hover:scale-110 transition" />
+      <span class="luxury text-xl font-bold hidden sm:inline">FixableUp</span>
+    </a>
+    <button id="menuToggle" class="text-3xl text-gray-300 md:hidden">&#9776;</button>
+    <nav id="menu" class="hidden md:flex space-x-6 text-gray-300 font-semibold">
+      <a href="index.html" class="hover:text-white">Home</a>
+      <a href="client_register.html" class="hover:text-white">Get Quotes</a>
+      <a href="provider_register.html" class="hover:text-white underline">Join as Provider</a>
+      <a href="contact.html" class="hover:text-white">Contact</a>
+      <a href="terms.html" class="hover:text-white">Terms</a>
+      <a href="privacy.html" class="hover:text-white">Privacy</a>
+    </nav>
+  </header>
 
-  <button id="menuToggle" class="text-3xl text-gray-300 md:hidden">&#9776;</button>
-
-  <nav id="menu" class="hidden md:flex space-x-6 text-gray-300 font-semibold">
-    <a href="index.html" class="hover:text-white ">Home</a>
+  <!-- Mobile Nav -->
+  <div id="mobileMenu" class="hidden flex flex-col bg-black bg-opacity-90 text-gray-300 p-4 space-y-4">
+    <a href="index.html" class="hover:text-white">Home</a>
     <a href="client_register.html" class="hover:text-white">Get Quotes</a>
-    <a href="provider_register.html" class="hover:text-white">Join as Provider</a>
+    <a href="provider_register.html" class="hover:text-white underline">Join as Provider</a>
     <a href="contact.html" class="hover:text-white">Contact</a>
-    <a href="terms.html" class="hover:text-white">Terms & Conditions</a>
-    <a href="/privacy.html" class="hover:text-white">Privacy</a>
-  </nav>
-</header>
+    <a href="terms.html" class="hover:text-white">Terms</a>
+    <a href="privacy.html" class="hover:text-white">Privacy</a>
+  </div>
 
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="hidden flex flex-col bg-black bg-opacity-90 text-gray-300 p-4 space-y-4">
-  <a href="index.html" class="hover:text-white ">Home</a>
-  <a href="client_register.html" class="hover:text-white">Get Quotes</a>
-  <a href="provider_register.html" class="hover:text-white">Join as Provider</a>
-  <a href="contact.html" class="hover:text-white">Contact</a>
-  <a href="terms.html" class="hover:text-white">Terms & Conditions</a>
-  <a href="/privacy.html" class="hover:text-white">Privacy</a>
-</div>
-
-<script>
-  document.getElementById('menuToggle').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.toggle('hidden');
-  });
-</script>
-
-  <!-- Form -->
+  <!-- Registration Form -->
   <main class="flex-grow flex items-center justify-center p-6">
     <div class="max-w-md w-full bg-black bg-opacity-70 p-8 rounded-2xl shadow-2xl">
-
       <a href="index.html">
-        <img src="logo.png" alt="FixableUp Logo" width="96" height="96" class="mx-auto mb-4 hover:scale-110 transition" />
+        <img src="logo.png" alt="FixableUp Logo" class="mx-auto mb-4 w-24 hover:scale-110 transition" />
       </a>
-
       <h1 class="text-3xl font-bold luxury text-center mb-2">Join as Provider</h1>
       <p class="text-center text-gray-400 mb-6">Verified providers get free leads in Upington. Trusted by 1000+ locals.</p>
 
       <form action="submit_provider.php" method="POST" class="space-y-4">
-        <input type="text" name="name" placeholder="Your Full Name" class="input" required />
-        <input type="email" name="email" placeholder="Your Email Address" class="input" required />
-        <input type="text" name="phone" placeholder="Phone Number" class="input" required />
-        <input type="text" name="location" placeholder="Your Business Location" class="input" required />
+        <input type="text" name="name" placeholder="Your Full Name *" class="input" required />
+        <input type="email" name="email" placeholder="Email Address *" class="input" required />
+        <input type="text" name="phone" placeholder="Phone Number *" class="input" required />
+        <input type="text" name="location" placeholder="Business Location *" class="input" required />
 
         <select name="service" class="input" required>
-          <option value="">Select Main Service</option>
-          <option value="Plumbing">Plumbing</option>
-          <option value="Electrical">Electrical</option>
-          <option value="Solar Services">Solar Services</option>
-          <option value="Cleaning">Cleaning</option>
-          <option value="Handyman">Handyman</option>
-          <option value="Construction">Construction</option>
-          <option value="Landscaping">Landscaping</option>
-          <option value="Automotive">Automotive</option>
-          <option value="Other">Other</option>
+          <option value="">Select Main Service *</option>
+          <option>Plumbing</option>
+          <option>Electrical</option>
+          <option>Solar Services</option>
+          <option>Cleaning</option>
+          <option>Handyman</option>
+          <option>Construction</option>
+          <option>Landscaping</option>
+          <option>Automotive</option>
+          <option>Other</option>
         </select>
 
-        <input type="text" name="sub_services" placeholder="List Sub-Services (e.g., Solar Cleaning, Car Mechanic, Window Tinting)" class="input" required />
-        <textarea name="details" rows="4" placeholder="Describe your experience, certificates, or areas of specialty" class="input"></textarea>
+        <input type="text" name="sub_services" placeholder="Sub-Services (e.g., Solar Cleaning, Window Tinting) *" class="input" required />
+        <textarea name="details" rows="4" placeholder="Experience, certificates, specialties..." class="input"></textarea>
 
-        <!-- New Future-Proof Fields -->
-        <input type="text" name="business_name" placeholder="Business or Company Name (Optional)" class="input" />
-
+        <input type="text" name="business_name" placeholder="Business or Company Name (optional)" class="input" />
         <select name="verification_status" class="input">
-          <option value="Unverified">Verification Status (Optional)</option>
+          <option value="Unverified">Verification Status (optional)</option>
           <option value="Verified">Verified</option>
           <option value="Unverified">Unverified</option>
         </select>
+        <input type="text" name="rating" placeholder="Your Rating (e.g., 4.5/5)" class="input" />
+        <input type="text" name="provider_id" placeholder="Provider ID (admin use only)" class="input" />
+        <input type="text" name="payment_reference" placeholder="EFT / PayGate Ref (optional)" class="input" />
 
-        <input type="text" name="rating" placeholder="Your Current Rating (e.g., 4.5/5)" class="input" />
-
-        <input type="text" name="provider_id" placeholder="Provider ID (for admin use)" class="input" />
-
-        <input type="text" name="payment_reference" placeholder="Payment Ref (EFT or PayGate Ref, optional)" class="input" />
-
-        <button type="submit" class="w-full bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-semibold py-3 rounded-xl hover:from-yellow-500 hover:to-yellow-300 transition">Register Now</button>
+        <button type="submit" class="w-full bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-semibold py-3 rounded-xl hover:from-yellow-500 hover:to-yellow-300 transition">
+          Register Now
+        </button>
       </form>
 
       <p class="text-center text-gray-500 text-sm mt-6">We verify every provider before sending leads. Your info stays private.</p>
