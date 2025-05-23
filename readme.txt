@@ -1,1 +1,1 @@
-Setup instructions will go here.
+Full setup instructions will be injected here.
