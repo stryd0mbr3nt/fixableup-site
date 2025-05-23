@@ -14,36 +14,14 @@
 <body class="min-h-screen p-6">
   <div class="max-w-2xl mx-auto">
     <h1 class="text-3xl font-bold luxury mb-4">Service Provider Registration</h1>
-    <form id="provider-form" method="POST">
+    <form id="provider-form" method="POST" action="provider_register_step1.php">
       <input type="text" name="name" placeholder="Full Name" required class="block w-full p-2 mb-2 rounded" />
       <input type="email" name="email" placeholder="Email" required class="block w-full p-2 mb-2 rounded" />
       <input type="text" name="phone" placeholder="Phone Number" required class="block w-full p-2 mb-4 rounded" />
-
-      <div id="card-frame" class="p-4 border border-gray-500 rounded mb-4"></div>
-      <button type="submit" class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded">Pay R150 & Register</button>
+      <input type="text" name="service" placeholder="Service Offered" required class="block w-full p-2 mb-4 rounded" />
+      <input type="text" name="location" placeholder="Service Area / Town" required class="block w-full p-2 mb-4 rounded" />
+      <button type="submit" class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded">Continue to Payment</button>
     </form>
   </div>
-
-  <script>
-    const yoco = new window.YocoSDK({ publicKey: 'pk_test_b1bf1e8eoWlE6E4bcc24' });
-    const inline = yoco.inline({ layout: "card", amountInCents: 15000, currency: "ZAR" });
-    inline.mount("#card-frame");
-
-    document.getElementById("provider-form").addEventListener("submit", async function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const token = await inline.createToken();
-      if (token.error) return alert(token.error.message);
-      const formData = new FormData(form);
-      formData.append("token", token.id);
-      fetch("/submit_provider.php", {
-        method: "POST",
-        body: formData
-      }).then(res => res.text()).then(response => {
-        alert(response);
-        if (response.includes("success")) form.reset();
-      }).catch(() => alert("Error during submission."));
-    });
-  </script>
 </body>
 </html>
